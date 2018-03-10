@@ -65,7 +65,8 @@ public class RolFacadeREST extends AbstractFacade<Rol> {
 
     @GET
     @Override
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<Rol> findAll() {
         return super.findAll();
     }

@@ -86,10 +86,11 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
         is2.entidades.UsuarioPK key = getPrimaryKey(id);
         return super.find(key);
     }
-
+    //POSTMAN
     @GET
     @Override
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)//MODIFICADO
+    //@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON}) ORIGINAL
     public List<Usuario> findAll() {
         return super.findAll();
     }

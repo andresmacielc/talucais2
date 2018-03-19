@@ -7,17 +7,21 @@ package Spis2.entities.service;
 
 import Spis2.entities.Usuario;
 import java.util.List;
+import javax.ejb.Asynchronous;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.container.AsyncResponse;
+import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -92,5 +96,20 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
+    @POST
+    @Path("/login")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    //@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Asynchronous
+    public void login(@Suspended
+    final AsyncResponse asyncResponse, @FormParam(value = "email")
+    final String email, @FormParam(value = "pass")
+    final String pass){
+        asyncResponse.resume(doLogin(email, pass));
+    }
+
+    private String doLogin(@FormParam("email") String email, @FormParam("pass") String pass) {
+        return String.valueOf(super.login(email, pass));
+    }
 }

@@ -5,7 +5,13 @@
  */
 package Spis2.entities.service;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 /**
@@ -59,6 +65,24 @@ public abstract class AbstractFacade<T> {
         cq.select(getEntityManager().getCriteriaBuilder().count(rt));
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
+    }
+    public boolean login(String email, String pass){
+           try {
+            String consulta = "Select email,password from usuario where email like "+
+                    email+" and password like "+pass;
+            DataConnect javaPostgreSQLBasic = new DataConnect();
+            Connection conx = javaPostgreSQLBasic.connectDatabase();
+            Statement st = conx.createStatement();
+            ResultSet nombre = st.executeQuery(consulta);
+            String nombrep= nombre.getString(1); 
+            String pss= nombre.getString(2);
+            if (nombrep.isEmpty() && pass.isEmpty()){
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DataConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
     }
     
 }

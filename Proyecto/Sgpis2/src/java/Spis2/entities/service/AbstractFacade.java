@@ -5,13 +5,8 @@
  */
 package Spis2.entities.service;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import Spis2.entities.Usuario;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 /**
@@ -66,23 +61,14 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    public boolean login(String email, String pass){
-           try {
-            String consulta = "Select email,password from usuario where email like "+
-                    email+" and password like "+pass;
-            DataConnect javaPostgreSQLBasic = new DataConnect();
-            Connection conx = javaPostgreSQLBasic.connectDatabase();
-            Statement st = conx.createStatement();
-            ResultSet nombre = st.executeQuery(consulta);
-            String nombrep= nombre.getString(1); 
-            String pss= nombre.getString(2);
-            if (nombrep.isEmpty() && pass.isEmpty()){
-                return false;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(DataConnect.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return true;
+    /*Se agrego una nueva funcion para el login*/
+    public boolean login(Usuario user){//se recibe un objeto user
+        String consulta = "Select nombre from Usuario where email ilike "+"'"+
+                 user.getEmail()+"'"+" and password like "+"'"+user.getPassword()+"'";//se construye la consulta
+        javax.persistence.Query q = getEntityManager().createNativeQuery(consulta);//se consulta por medio de la persistencia
+        if(q.getResultList().isEmpty())//se consulta se hubo resultados, si no el usuario o pass estan incorrectos
+            return false;
+        else
+            return true;
     }
-    
 }

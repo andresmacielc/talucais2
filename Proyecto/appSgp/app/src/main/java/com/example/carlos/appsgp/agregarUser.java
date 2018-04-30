@@ -1,0 +1,119 @@
+package com.example.carlos.appsgp;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+/**
+ * Created by carlos on 29/04/18.
+ */
+
+public class agregarUser extends AppCompatActivity {
+    Button buttonAgregar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.agregar_user);
+        buttonAgregar= (Button)findViewById(R.id.agregarButton);
+        buttonAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                servicioUser();
+            }
+        });
+    }
+    @SuppressLint("WrongConstant")
+    public void servicioUser(){
+        EditText editTextUserName = (EditText) findViewById(R.id.editEliminarEmail);
+        EditText editTextUserApellido = (EditText) findViewById(R.id.editAgregarApellido);
+        EditText editTextUserEmail = (EditText) findViewById(R.id.editAgregarEmail);
+        EditText editTextUserPassword = (EditText) findViewById(R.id.editAgregarPassword);
+        Switch sEstado = (Switch) findViewById(R.id.agregarSwitchEstado);
+        int message;
+        JSONObject loginParams = new JSONObject();
+
+        try {
+            loginParams.put("nombre", editTextUserName.getText().toString());
+            loginParams.put("apellido", editTextUserApellido.getText().toString());
+            loginParams.put("email", editTextUserEmail.getText().toString());
+            loginParams.put("password", editTextUserPassword.getText().toString());
+            loginParams.put("fechaCreacionUsuario", "2018-03-12T00:00:00-03:00");
+            loginParams.put("status", 1);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        try {
+            message = executePost("http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario", loginParams.toString());
+            if (message != 204){
+                Toast.makeText(this,"Ocurrio un problema al registar User", 5).show();
+                return;
+            }
+            Toast.makeText(this,"Registro exitoso", 5).show();
+        }
+        catch(NullPointerException e){
+            Toast.makeText(this,"No se pudo conectar con el servidor", 5).show();
+        }
+
+    }
+    @SuppressLint("WrongConstant")
+    public int executePost(String targetURL,String urlParameters) {
+        int timeout=5000;
+        URL url;
+        HttpURLConnection connection = null;
+        try {
+            //establece la conexion
+
+            url = new URL(targetURL);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+
+            connection.setUseCaches(false);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setConnectTimeout(timeout);
+            connection.setReadTimeout(timeout);
+
+            //envia la peticion
+            DataOutputStream wr = new DataOutputStream(
+                    connection.getOutputStream());
+            wr.writeBytes(urlParameters);
+            wr.flush();
+            wr.close();
+
+            return connection.getResponseCode();
+
+        } catch (Exception e) {
+            Toast.makeText(this,"Error de conexión", 10).show();
+            e.printStackTrace();
+        } finally {
+
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
+        return 0;
+    }
+}
+
+
+

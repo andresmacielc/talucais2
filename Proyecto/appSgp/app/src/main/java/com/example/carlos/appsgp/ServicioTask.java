@@ -1,151 +1,88 @@
 package com.example.carlos.appsgp;
 
+import android.annotation.SuppressLint;
+
+import android.app.Activity;
+import android.os.StrictMode;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import android.os.Bundle;
+import android.widget.Toast;
+
 /**
  * Created by carlos on 31/03/18.
  */
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.widget.Toast;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Iterator;
-
-public class ServicioTask extends AsyncTask<Void, Void, String> {
-    //variables del hilo
-    private Context httpContext;//contexto
-    ProgressDialog progressDialog;//dialogo cargando
-    public String resultadoapi="";
-    public String linkrequestAPI="";//link  para consumir el servicio rest
-
-    public String email="";
-    public String pass="";
-
-    //constructor del hilo (Asynctask)
-    public ServicioTask(Context ctx, String linkAPI, String  email, String pass ){
-        this.httpContext=ctx;
-        this.linkrequestAPI=linkAPI;
-        this.email=email;
-        this.pass=pass;
-    }
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        progressDialog = ProgressDialog.show(httpContext, "Procesando Solicitud", "por favor, espere");
-    }
+public class ServicioTask extends Activity {
 
     @Override
-    protected String doInBackground(Void... params) {
-        String result= null;
-
-        String wsURL = linkrequestAPI;
-        URL url = null;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+    public String conectar(String url,String loginParams){
+        String message = null;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         try {
-            // se crea la conexion al api
-            url = new URL(wsURL);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            //crear el objeto json para enviar por POST
-            JSONObject parametrosPost= new JSONObject();
+            message = executePost(url, loginParams);
+            return message;
+        }
+        catch(NullPointerException e){
+            return null;
+        }
+    }
 
-            parametrosPost.put("email",email);
-            parametrosPost.put("password",pass);
+    @SuppressLint("WrongConstant")
+    public String executePost(String targetURL, String urlParameters) {
+        int timeout = 15000;
+        URL url;
+        HttpURLConnection connection = null;
+        try {
+            //establece la conexion
 
-            //DEFINIR PARAMETROS DE CONEXION
-            urlConnection.setReadTimeout(15000 /* milliseconds */);
-            urlConnection.setConnectTimeout(15000 /* milliseconds */);
-            urlConnection.setRequestMethod("POST");// se puede cambiar por delete ,put ,etc
-            urlConnection.setDoInput(true);
-            urlConnection.setDoOutput(true);
+            url = new URL(targetURL);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
 
+            connection.setUseCaches(false);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setConnectTimeout(timeout);
+            connection.setReadTimeout(timeout);
 
-            //OBTENER EL RESULTADO DEL REQUEST
-            OutputStream os = urlConnection.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-            writer.write(getPostDataString(parametrosPost));
-            writer.flush();
-            writer.close();
-            os.close();
+            //envia la peticion
+            DataOutputStream wr = new DataOutputStream(
+                    connection.getOutputStream());
+            wr.writeBytes(urlParameters);
+            wr.flush();
+            wr.close();
 
-            int responseCode=urlConnection.getResponseCode();// conexion OK?
-            if(responseCode== HttpURLConnection.HTTP_OK){
-                BufferedReader in= new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
-                StringBuffer sb= new StringBuffer("");
-                String linea="";
-                while ((linea=in.readLine())!= null){
-                    sb.append(linea);
-                    break;
-
-                }
-                in.close();
-                result= sb.toString();
+            // obtiene la respuesta
+            InputStream is = connection.getInputStream();
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+            String line;
+            StringBuffer response = new StringBuffer();
+            while ((line = rd.readLine()) != null) {
+                response.append(line);
             }
-            else{
-                result= new String("Error: "+ responseCode);
+            rd.close();
+            return response.toString();
 
-
-            }
-
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
         } catch (Exception e) {
+            Toast.makeText(this,"Error de conexión ", 5).show();
             e.printStackTrace();
+        } finally {
+
+            if (connection != null) {
+                connection.disconnect();
+            }
         }
-
-
-        return  result;
-
+        return null;
     }
-
-    @Override
-    protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-        progressDialog.dismiss();
-        resultadoapi=s;
-        Toast.makeText(httpContext,resultadoapi,Toast.LENGTH_LONG).show();//mostrara una notificacion con el resultado del request
-
-    }
-
-    //FUNCIONES----------------------------------------------------------------------
-    //Transformar JSON Obejct a String *******************************************
-    public String getPostDataString(JSONObject params) throws Exception {
-
-        StringBuilder result = new StringBuilder();
-        boolean first = true;
-        Iterator<String> itr = params.keys();
-        while(itr.hasNext()){
-
-            String key= itr.next();
-            Object value = params.get(key);
-
-            if (first)
-                first = false;
-            else
-                result.append("&");
-
-            result.append(URLEncoder.encode(key, "UTF-8"));
-            result.append("=");
-            result.append(URLEncoder.encode(value.toString(), "UTF-8"));
-        }
-        return result.toString();
-    }
-
 }

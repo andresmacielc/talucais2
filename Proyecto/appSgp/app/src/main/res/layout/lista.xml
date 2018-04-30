@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">
+
+        <ListView
+            android:id="@+id/listViewLista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="127dp" />
+
+        <Button
+            android:id="@+id/buttonAgregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="38dp"
+            android:layout_marginEnd="17dp"
+            android:layout_toStartOf="@+id/buttonEditar"
+            android:text="Agregar" />
+
+        <Button
+            android:id="@+id/buttonEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonAgregar"
+            android:layout_alignBottom="@+id/buttonAgregar"
+            android:layout_centerHorizontal="true"
+            android:text="Editar" />
+
+        <Button
+            android:id="@+id/buttonEliminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonEditar"
+            android:layout_alignBottom="@+id/buttonEditar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="39dp"
+            android:text="Eliminar" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/textViewEliminarUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:text="Agregar Usuario" />
+
+        <TextView
+            android:id="@+id/agregarNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewEliminarUsuario"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="31dp"
+            android:text="Nombre" />
+
+        <TextView
+            android:id="@+id/agregarApellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/agregarNombre"
+            android:layout_below="@+id/agregarNombre"
+            android:layout_marginTop="31dp"
+            android:text="Apellido" />
+
+        <TextView
+            android:id="@+id/agregarEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/agregarApellido"
+            android:layout_below="@+id/agregarApellido"
+            android:layout_marginTop="41dp"
+            android:text="Email" />
+
+        <TextView
+            android:id="@+id/agregarPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/agregarEmail"
+            android:layout_centerVertical="true"
+            android:text="Password" />
+
+        <TextView
+            android:id="@+id/agregarEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/agregarPassword"
+            android:layout_below="@+id/agregarPassword"
+            android:layout_marginTop="29dp"
+            android:text="Estado" />
+
+        <EditText
+            android:id="@+id/editEliminarEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/agregarNombre"
+            android:layout_toEndOf="@+id/agregarPassword"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editAgregarApellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/agregarApellido"
+            android:layout_alignBottom="@+id/agregarApellido"
+            android:layout_alignStart="@+id/editEliminarEmail"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editAgregarEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/agregarEmail"
+            android:layout_alignBottom="@+id/agregarEmail"
+            android:layout_alignStart="@+id/editAgregarApellido"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editAgregarPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/agregarPassword"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <Switch
+            android:id="@+id/agregarSwitchEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/agregarEstado"
+            android:layout_toEndOf="@+id/agregarApellido" />
+
+        <Button
+            android:id="@+id/agregarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textViewEliminarUsuario"
+            android:layout_below="@+id/agregarSwitchEstado"
+            android:layout_marginTop="47dp"
+            android:text="Agregar" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

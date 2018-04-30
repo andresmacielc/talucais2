@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ysabel"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        tools:ignore="UnknownId">
 
         <!--Logo Start -->
 

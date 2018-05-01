@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewEditarUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:text="Editar Usuario" />
+
+        <TextView
+            android:id="@+id/textViewEditarInfoId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewEditarUser"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Ingrese el ID del user a editar" />
+
+        <EditText
+            android:id="@+id/editTextEditarId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textViewEditarUser"
+            android:layout_below="@+id/textViewEditarInfoId"
+            android:layout_marginTop="14dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="ID" />
+
+        <EditText
+            android:id="@+id/editTextEditarNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textViewEditarUser"
+            android:layout_below="@+id/editTextEditarId"
+            android:layout_marginTop="51dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Nombre" />
+
+        <EditText
+            android:id="@+id/editTextApellido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/editTextEditarNombre"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Apellido" />
+
+        <EditText
+            android:id="@+id/editTextEditarEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textViewEditarUser"
+            android:layout_below="@+id/editTextApellido"
+            android:layout_marginTop="11dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Email" />
+
+        <EditText
+            android:id="@+id/editTextEditarPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/editTextEditarEmail"
+            android:layout_below="@+id/editTextEditarEmail"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Password" />
+
+        <Switch
+            android:id="@+id/switchEditarEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextEditarPass"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="32dp"
+            android:layout_toEndOf="@+id/textViewEditarEstado" />
+
+        <TextView
+            android:id="@+id/textViewEditarEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/switchEditarEstado"
+            android:layout_alignStart="@+id/editTextEditarPass"
+            android:text="Estado" />
+
+        <Button
+            android:id="@+id/buttonEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/editTextEditarPass"
+            android:layout_alignTop="@+id/textViewEditarEstado"
+            android:text="Editar" />
+
+        <TextView
+            android:id="@+id/textViewEditarInfoUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextEditarId"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/switchEditarEstado"
+            android:text="Ingrese los datos a editar" />
+
+        <Button
+            android:id="@+id/buttonEditarGuardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonEditar"
+            android:layout_alignBottom="@+id/buttonEditar"
+            android:layout_marginStart="22dp"
+            android:layout_toEndOf="@+id/textViewEditarUser"
+            android:enabled="false"
+            android:text="Guardar" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

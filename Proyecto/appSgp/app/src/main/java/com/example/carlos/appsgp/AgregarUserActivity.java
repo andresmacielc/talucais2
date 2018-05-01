@@ -13,22 +13,17 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.DataOutputStream;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 /**
  * Created by carlos on 29/04/18.
  */
 
-public class agregarUser extends AppCompatActivity {
+public class AgregarUserActivity extends AppCompatActivity {
     Button buttonAgregar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.agregar_user);
+        setContentView(R.layout.vista_usuario_agregar);
         buttonAgregar= (Button)findViewById(R.id.agregarButton);
         buttonAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +34,7 @@ public class agregarUser extends AppCompatActivity {
     }
     @SuppressLint("WrongConstant")
     public void servicioUser(){
-        EditText editTextUserName = (EditText) findViewById(R.id.editEliminarEmail);
+        EditText editTextUserName = (EditText) findViewById(R.id.editAgregarNombre);
         EditText editTextUserApellido = (EditText) findViewById(R.id.editAgregarApellido);
         EditText editTextUserEmail = (EditText) findViewById(R.id.editAgregarEmail);
         EditText editTextUserPassword = (EditText) findViewById(R.id.editAgregarPassword);
@@ -62,7 +57,7 @@ public class agregarUser extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         try {
-            message = executePost("http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario", loginParams.toString());
+            message = ServicioActivity.postSinRespuesta(this,"http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario", loginParams.toString());
             if (message != 204){
                 Toast.makeText(this,"Ocurrio un problema al registar User", 5).show();
                 return;
@@ -73,45 +68,6 @@ public class agregarUser extends AppCompatActivity {
             Toast.makeText(this,"No se pudo conectar con el servidor", 5).show();
         }
 
-    }
-    @SuppressLint("WrongConstant")
-    public int executePost(String targetURL,String urlParameters) {
-        int timeout=5000;
-        URL url;
-        HttpURLConnection connection = null;
-        try {
-            //establece la conexion
-
-            url = new URL(targetURL);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-
-            connection.setUseCaches(false);
-            connection.setDoInput(true);
-            connection.setDoOutput(true);
-            connection.setConnectTimeout(timeout);
-            connection.setReadTimeout(timeout);
-
-            //envia la peticion
-            DataOutputStream wr = new DataOutputStream(
-                    connection.getOutputStream());
-            wr.writeBytes(urlParameters);
-            wr.flush();
-            wr.close();
-
-            return connection.getResponseCode();
-
-        } catch (Exception e) {
-            Toast.makeText(this,"Error de conexión", 10).show();
-            e.printStackTrace();
-        } finally {
-
-            if (connection != null) {
-                connection.disconnect();
-            }
-        }
-        return 0;
     }
 }
 

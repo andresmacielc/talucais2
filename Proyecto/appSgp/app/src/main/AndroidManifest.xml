@@ -17,10 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DisplayMenuActivity" android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".UserActivity" android:parentActivityName=".DisplayMenuActivity"></activity>
-        <activity android:name=".agregarUser" android:parentActivityName=".UserActivity"></activity>
-        <activity android:name=".eliminarUser" android:parentActivityName=".UserActivity"></activity>
+        <activity android:name=".InicioActivity" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".UserActivity" android:parentActivityName=".InicioActivity"></activity>
+        <activity android:name=".AgregarUserActivity" android:parentActivityName=".UserActivity"></activity>
+        <activity android:name=".EliminarUserActivity" android:parentActivityName=".UserActivity"></activity>
+        <activity android:name=".EditarUserActivity" android:parentActivityName=".UserActivity"></activity>
     </application>
 
 </manifest>

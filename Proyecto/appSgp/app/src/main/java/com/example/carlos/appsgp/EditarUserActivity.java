@@ -1,0 +1,105 @@
+package com.example.carlos.appsgp;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+/**
+ * Created by carlos on 01/05/18.
+ */
+
+public class EditarUserActivity extends AppCompatActivity {
+    Button buttonEditar;
+    Button buttonGuardar;
+    EditText editEditarId;
+    EditText editTextUserName;
+    EditText editTextUserApellido;
+    EditText editTextUserEmail;
+    EditText editTextUserPassword;
+    Switch sEstado;
+    JSONObject obj;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.vista_usuario_editar);
+        editEditarId = (EditText) findViewById(R.id.editTextEditarId);
+        editTextUserName = (EditText) findViewById(R.id.editTextEditarNombre);
+        editTextUserApellido = (EditText) findViewById(R.id.editTextApellido);
+        editTextUserEmail = (EditText) findViewById(R.id.editTextEditarEmail);
+        editTextUserPassword = (EditText) findViewById(R.id.editTextEditarPass);
+        sEstado = (Switch) findViewById(R.id.switchEditarEstado);
+        buttonEditar= (Button)findViewById(R.id.buttonEditar);
+        buttonGuardar= (Button)findViewById(R.id.buttonEditarGuardar);
+        buttonEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listarInfo();
+                buttonGuardar.setEnabled(true);
+
+            }
+        });
+        buttonGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editUser();
+
+            }
+        });
+    }
+
+  @SuppressLint("WrongConstant")
+  public void listarInfo(){
+      String mensaje;
+      String url = "http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario/"+editEditarId.getText().toString();
+      mensaje = ServicioActivity.getId(url);
+      if(mensaje != null) {
+          try {
+              obj = new JSONObject(mensaje);
+              editTextUserName.setText(obj.getString("nombre"));
+              editTextUserApellido.setText(obj.getString("apellido"));
+              editTextUserEmail.setText(obj.getString("email"));
+              editTextUserPassword.setText(obj.getString("password"));
+              Toast.makeText(this,"MODIFIQUE LOS DATOS QUE DESEA Y PULSE GUARDAR", 2500).show();
+              buttonGuardar.setEnabled(true);
+          } catch (JSONException e) {
+              e.printStackTrace();
+          }
+      }else{
+          Toast.makeText(this,"El id NO EXISTE!!", 5).show();
+      }
+  }
+
+    @SuppressLint("WrongConstant")
+    public void editUser(){
+      String url = "http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario/"+editEditarId.getText().toString();
+      int resp;
+
+    JSONObject loginParams = new JSONObject();
+
+    try {
+        loginParams.put("nombre", editTextUserName.getText().toString());
+        loginParams.put("apellido", editTextUserApellido.getText().toString());
+        loginParams.put("email", editTextUserEmail.getText().toString());
+        loginParams.put("password", editTextUserPassword.getText().toString());
+        loginParams.put("idUsuario", obj.getString("idUsuario"));
+        loginParams.put("fechaCreacionUsuario", obj.getString("fechaCreacionUsuario"));
+        loginParams.put("status", obj.getString("status"));
+    } catch (JSONException e) {
+        e.printStackTrace();
+    }
+    resp = ServicioActivity.put(this,url,loginParams.toString());
+    if (resp != 204){
+        Toast.makeText(this,"No se pudo editar, ocurrio un problema", 5).show();
+        return;
+    }
+     Toast.makeText(this,"Edicion exitosa", 5).show();
+    }
+}

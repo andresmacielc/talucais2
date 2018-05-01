@@ -20,11 +20,12 @@ public class UserActivity extends AppCompatActivity{
     ArrayList<String> coleccion = new ArrayList<String>();
     Button buttonAgregar;
     Button buttonEliminar;
+    Button buttonEditar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lista);
+        setContentView(R.layout.vista_usuario);
         Intent intent = getIntent();
         coleccion = intent.getStringArrayListExtra("Coleccion");
         listaUsuario = (ListView) findViewById(R.id.listViewLista);
@@ -32,6 +33,7 @@ public class UserActivity extends AppCompatActivity{
         listaUsuario.setAdapter(adaptadorColeccion);
         buttonAgregar = (Button)findViewById(R.id.buttonAgregar);
         buttonEliminar = (Button)findViewById(R.id.buttonEliminar);
+        buttonEditar = (Button)findViewById(R.id.buttonEditar);
         buttonAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,15 +48,27 @@ public class UserActivity extends AppCompatActivity{
 
             }
         });
+        buttonEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editarUser();
+
+            }
+        });
+
 
     }
     public void registarUser(){
-        Intent intentA = new Intent(this, agregarUser.class);
+        Intent intentA = new Intent(this, AgregarUserActivity.class);
         startActivity(intentA);
     }
 
     public void eliminarUser(){
-        Intent intentA = new Intent(this, eliminarUser.class);
+        Intent intentA = new Intent(this, EliminarUserActivity.class);
+        startActivity(intentA);
+    }
+    public void editarUser(){
+        Intent intentA = new Intent(this, EditarUserActivity.class);
         startActivity(intentA);
     }
 }

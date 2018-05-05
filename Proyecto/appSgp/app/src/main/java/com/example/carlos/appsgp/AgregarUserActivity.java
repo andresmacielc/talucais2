@@ -13,13 +13,15 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by carlos on 29/04/18.
  */
 
 public class AgregarUserActivity extends AppCompatActivity {
     Button buttonAgregar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +59,9 @@ public class AgregarUserActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         try {
-            message = ServicioActivity.postSinRespuesta(this,"http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario", loginParams.toString());
+            message = ServicioActivity.postSinRespuesta(this,"http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.usuario", loginParams.toString());
             if (message != 204){
-                Toast.makeText(this,"Ocurrio un problema al registar User", 5).show();
+                Toast.makeText(this,"Ocurrio un problema al registar User "+message, 5).show();
                 return;
             }
             Toast.makeText(this,"Registro exitoso", 5).show();

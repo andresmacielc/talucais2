@@ -30,7 +30,7 @@ public class EliminarUserActivity extends AppCompatActivity {
     @SuppressLint("WrongConstant")
     public void eliminar(){
         int resp;
-        String url = "http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario/"+editEliminarId.getText().toString();
+        String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.usuario/"+editEliminarId.getText().toString();
         resp = ServicioActivity.delete(this,url);
         if (resp != 204){
             Toast.makeText(this,"El user no existe!!!", 5).show();

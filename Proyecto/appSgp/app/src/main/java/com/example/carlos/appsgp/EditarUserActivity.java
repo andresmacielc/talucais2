@@ -58,7 +58,7 @@ public class EditarUserActivity extends AppCompatActivity {
   @SuppressLint("WrongConstant")
   public void listarInfo(){
       String mensaje;
-      String url = "http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario/"+editEditarId.getText().toString();
+      String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.usuario/"+editEditarId.getText().toString();
       mensaje = ServicioActivity.getId(url);
       if(mensaje != null) {
           try {
@@ -79,7 +79,7 @@ public class EditarUserActivity extends AppCompatActivity {
 
     @SuppressLint("WrongConstant")
     public void editUser(){
-      String url = "http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario/"+editEditarId.getText().toString();
+      String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.usuario/"+editEditarId.getText().toString();
       int resp;
 
     JSONObject loginParams = new JSONObject();

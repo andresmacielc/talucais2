@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         try {
-            message = ServicioActivity.postRespuesta(this,"http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario/login",
+            message = ServicioActivity.postRespuesta(this,"http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.usuario/login",
                     loginParams.toString());
             message = message.replaceAll("\n","");
             if (message.equals("")){

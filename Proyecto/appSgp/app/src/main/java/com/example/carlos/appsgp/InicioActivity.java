@@ -31,7 +31,7 @@ public class InicioActivity extends AppCompatActivity {
     }
 
     public void cargarListaUser(View view) {
-        String url = "http://192.168.43.57:8080/Sgpis2/webresources/spis2.entities.usuario";
+        String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.usuario";
         JSONArray usuariosJSON = ServicioActivity.get(url);
         String userLista;
         for(int i=0; i<usuariosJSON.length(); i++)

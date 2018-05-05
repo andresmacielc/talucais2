@@ -30,9 +30,13 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(Spis2.entities.service.GroupsFacadeREST.class);
+        resources.add(Spis2.entities.service.PermisosFacadeREST.class);
         resources.add(Spis2.entities.service.ProjectsFacadeREST.class);
         resources.add(Spis2.entities.service.RolFacadeREST.class);
+        resources.add(Spis2.entities.service.RolPermisosFacadeREST.class);
+        resources.add(Spis2.entities.service.SprintFacadeREST.class);
         resources.add(Spis2.entities.service.UsuarioFacadeREST.class);
+        resources.add(Spis2.entities.service.UsuarioHistoryFacadeREST.class);
     }
     
 }

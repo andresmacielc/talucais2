@@ -15,6 +15,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -31,34 +33,32 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author carlos
  */
 @Entity
-@Table(name = "projects")
+@Table(name = "sprint")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Projects.findAll", query = "SELECT p FROM Projects p")
-    , @NamedQuery(name = "Projects.findByIdProject", query = "SELECT p FROM Projects p WHERE p.idProject = :idProject")
-    , @NamedQuery(name = "Projects.findByNombre", query = "SELECT p FROM Projects p WHERE p.nombre = :nombre")
-    , @NamedQuery(name = "Projects.findByDescripcion", query = "SELECT p FROM Projects p WHERE p.descripcion = :descripcion")
-    , @NamedQuery(name = "Projects.findByFechaInicio", query = "SELECT p FROM Projects p WHERE p.fechaInicio = :fechaInicio")
-    , @NamedQuery(name = "Projects.findByFechaFin", query = "SELECT p FROM Projects p WHERE p.fechaFin = :fechaFin")})
-public class Projects implements Serializable {
+    @NamedQuery(name = "Sprint.findAll", query = "SELECT s FROM Sprint s")
+    , @NamedQuery(name = "Sprint.findByIdSprint", query = "SELECT s FROM Sprint s WHERE s.idSprint = :idSprint")
+    , @NamedQuery(name = "Sprint.findByNombre", query = "SELECT s FROM Sprint s WHERE s.nombre = :nombre")
+    , @NamedQuery(name = "Sprint.findByFechaInicio", query = "SELECT s FROM Sprint s WHERE s.fechaInicio = :fechaInicio")
+    , @NamedQuery(name = "Sprint.findByFechaFin", query = "SELECT s FROM Sprint s WHERE s.fechaFin = :fechaFin")
+    , @NamedQuery(name = "Sprint.findByDescripcion", query = "SELECT s FROM Sprint s WHERE s.descripcion = :descripcion")})
+public class Sprint implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProject")
-    private Collection<Sprint> sprintCollection;
+    @JoinColumn(name = "id_project", referencedColumnName = "id_project")
+    @ManyToOne(optional = false)
+    private Projects idProject;
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_project")
-    private Integer idProject;
+    @Column(name = "id_sprint")
+    private Integer idSprint;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2147483647)
     @Column(name = "nombre")
     private String nombre;
-    @Size(max = 2147483647)
-    @Column(name = "descripcion")
-    private String descripcion;
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha_inicio")
@@ -69,29 +69,32 @@ public class Projects implements Serializable {
     @Column(name = "fecha_fin")
     @Temporal(TemporalType.DATE)
     private Date fechaFin;
-    @OneToMany(mappedBy = "idProject")
-    private Collection<Groups> groupsCollection;
+    @Size(max = 2147483647)
+    @Column(name = "descripcion")
+    private String descripcion;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idSprint")
+    private Collection<UsuarioHistory> usuarioHistoryCollection;
 
-    public Projects() {
+    public Sprint() {
     }
 
-    public Projects(Integer idProject) {
-        this.idProject = idProject;
+    public Sprint(Integer idSprint) {
+        this.idSprint = idSprint;
     }
 
-    public Projects(Integer idProject, String nombre, Date fechaInicio, Date fechaFin) {
-        this.idProject = idProject;
+    public Sprint(Integer idSprint, String nombre, Date fechaInicio, Date fechaFin) {
+        this.idSprint = idSprint;
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
 
-    public Integer getIdProject() {
-        return idProject;
+    public Integer getIdSprint() {
+        return idSprint;
     }
 
-    public void setIdProject(Integer idProject) {
-        this.idProject = idProject;
+    public void setIdSprint(Integer idSprint) {
+        this.idSprint = idSprint;
     }
 
     public String getNombre() {
@@ -100,14 +103,6 @@ public class Projects implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public Date getFechaInicio() {
@@ -126,30 +121,38 @@ public class Projects implements Serializable {
         this.fechaFin = fechaFin;
     }
 
-    @XmlTransient
-    public Collection<Groups> getGroupsCollection() {
-        return groupsCollection;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setGroupsCollection(Collection<Groups> groupsCollection) {
-        this.groupsCollection = groupsCollection;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    @XmlTransient
+    public Collection<UsuarioHistory> getUsuarioHistoryCollection() {
+        return usuarioHistoryCollection;
+    }
+
+    public void setUsuarioHistoryCollection(Collection<UsuarioHistory> usuarioHistoryCollection) {
+        this.usuarioHistoryCollection = usuarioHistoryCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idProject != null ? idProject.hashCode() : 0);
+        hash += (idSprint != null ? idSprint.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Projects)) {
+        if (!(object instanceof Sprint)) {
             return false;
         }
-        Projects other = (Projects) object;
-        if ((this.idProject == null && other.idProject != null) || (this.idProject != null && !this.idProject.equals(other.idProject))) {
+        Sprint other = (Sprint) object;
+        if ((this.idSprint == null && other.idSprint != null) || (this.idSprint != null && !this.idSprint.equals(other.idSprint))) {
             return false;
         }
         return true;
@@ -157,16 +160,15 @@ public class Projects implements Serializable {
 
     @Override
     public String toString() {
-        return "Spis2.entities.Projects[ idProject=" + idProject + " ]";
+        return "Spis2.entities.Sprint[ idSprint=" + idSprint + " ]";
     }
 
-    @XmlTransient
-    public Collection<Sprint> getSprintCollection() {
-        return sprintCollection;
+    public Projects getIdProject() {
+        return idProject;
     }
 
-    public void setSprintCollection(Collection<Sprint> sprintCollection) {
-        this.sprintCollection = sprintCollection;
+    public void setIdProject(Projects idProject) {
+        this.idProject = idProject;
     }
     
 }

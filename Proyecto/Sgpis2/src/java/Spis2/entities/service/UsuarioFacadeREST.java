@@ -12,7 +12,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -99,6 +98,7 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
     @Produces(MediaType.TEXT_PLAIN)//lo que va a retornar
     @Consumes(MediaType.APPLICATION_JSON)//lo que recibe
     //@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Override
     public boolean login(Usuario entity){
         /*se llama a ala funcion de la clase abstracta*/
         return super.login(entity);

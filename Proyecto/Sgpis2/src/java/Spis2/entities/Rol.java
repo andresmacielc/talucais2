@@ -8,6 +8,7 @@ package Spis2.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,6 +36,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Rol.findByDescripcion", query = "SELECT r FROM Rol r WHERE r.descripcion = :descripcion")
     , @NamedQuery(name = "Rol.findByStatus", query = "SELECT r FROM Rol r WHERE r.status = :status")})
 public class Rol implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rol")
+    private Collection<RolPermisos> rolPermisosCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -123,6 +127,15 @@ public class Rol implements Serializable {
     @Override
     public String toString() {
         return "Spis2.entities.Rol[ idRol=" + idRol + " ]";
+    }
+
+    @XmlTransient
+    public Collection<RolPermisos> getRolPermisosCollection() {
+        return rolPermisosCollection;
+    }
+
+    public void setRolPermisosCollection(Collection<RolPermisos> rolPermisosCollection) {
+        this.rolPermisosCollection = rolPermisosCollection;
     }
     
 }

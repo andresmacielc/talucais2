@@ -60,7 +60,6 @@ public class Usuario implements Serializable {
     @Column(name = "apellido")
     private String apellido;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "status")
     private int status;
     @Basic(optional = false)
@@ -75,7 +74,6 @@ public class Usuario implements Serializable {
     @Column(name = "email")
     private String email;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "fecha_creacion_usuario")
     @Temporal(TemporalType.DATE)
     private Date fechaCreacionUsuario;
@@ -153,7 +151,7 @@ public class Usuario implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
     public Date getFechaCreacionUsuario() {
         return fechaCreacionUsuario;
     }
@@ -161,7 +159,7 @@ public class Usuario implements Serializable {
     public void setFechaCreacionUsuario(Date fechaCreacionUsuario) {
         this.fechaCreacionUsuario = fechaCreacionUsuario;
     }
-
+    
     public Date getFechaAsignacionRol() {
         return fechaAsignacionRol;
     }

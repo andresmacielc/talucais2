@@ -23,7 +23,7 @@ public class ServicioActivity extends AppCompatActivity {
     //variables a ser utilizadas
     final static private int duracionToast = 10;
     final static private int timeout = 5000;
-    final static public String ip = "192.168.43.142:8080";
+    final static public String ip = "192.168.43.57:8080";
 
     /*Metodo que realiza la conexion (POST) con el servidor y envia la respuesta del
     servidor*/
@@ -120,7 +120,7 @@ public class ServicioActivity extends AppCompatActivity {
     /*Metodo que realiza la conexion (GET) con el servidor y el servidor responde con todos los
     datos */
     @SuppressLint("WrongConstant")
-    public static JSONArray get(String targetURL) {
+    public static JSONArray get(Context context, String targetURL) {
         URL url;
         HttpURLConnection connection = null;
         try {
@@ -144,6 +144,7 @@ public class ServicioActivity extends AppCompatActivity {
             return respJSON;
 
         } catch (Exception e) {
+            Toast.makeText(context,"Error de conexión "+e.getMessage(),duracionToast).show();
             e.printStackTrace();
         } finally {
 

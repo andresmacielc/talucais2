@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.carlos.appsgp">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,11 +19,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InicioActivity" android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".UserActivity" android:parentActivityName=".InicioActivity"></activity>
-        <activity android:name=".AgregarUserActivity" android:parentActivityName=".UserActivity"></activity>
-        <activity android:name=".EliminarUserActivity" android:parentActivityName=".UserActivity"></activity>
-        <activity android:name=".EditarUserActivity" android:parentActivityName=".UserActivity"></activity>
+        <activity
+            android:name=".InicioActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UserActivity"
+            android:parentActivityName=".InicioActivity" />
+        <activity
+            android:name=".TareasActivity"
+            android:parentActivityName=".InicioActivity" />
+        <activity
+            android:name=".AgregarUserActivity"
+            android:parentActivityName=".UserActivity" />
+        <activity
+            android:name=".EliminarUserActivity"
+            android:parentActivityName=".UserActivity" />
+        <activity
+            android:name=".EditarUserActivity"
+            android:parentActivityName=".UserActivity" />
+
     </application>
 
 </manifest>

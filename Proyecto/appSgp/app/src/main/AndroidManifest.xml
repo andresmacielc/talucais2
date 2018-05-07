@@ -37,7 +37,15 @@
         <activity
             android:name=".EditarUserActivity"
             android:parentActivityName=".UserActivity" />
-
+        <activity
+            android:name=".EditarTareasActivity"
+            android:parentActivityName=".TareasActivity" />
+        <activity
+            android:name=".AgregarTareasActivity"
+            android:parentActivityName=".TareasActivity" />
+        <activity
+            android:name=".EliminarTareaActivity"
+            android:parentActivityName=".TareasActivity" />
     </application>
 
 </manifest>

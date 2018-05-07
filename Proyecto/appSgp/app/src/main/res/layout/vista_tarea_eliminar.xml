@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewEliminarTarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="146dp"
+            android:layout_marginTop="54dp"
+            android:text="Eliminar Tarea" />
+
+        <TextView
+            android:id="@+id/textViewEliminarIdTarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewEliminarTarea"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="75dp"
+            android:text="ID Tarea: " />
+
+        <Button
+            android:id="@+id/buttonEliminarTarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="137dp"
+            android:text="Eliminar Tarea" />
+
+        <EditText
+            android:id="@+id/editTextEliminarIdTarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewEliminarTarea"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="61dp"
+            android:layout_toEndOf="@+id/textViewEliminarIdTarea"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textViewInfoEliminarIdTarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewEliminarTarea"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="Ingrese el ID, de la Tarea a ser eliminado " />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -9,8 +9,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="140dp">
+        tools:layout_editor_absoluteX="95dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints">
 
         <Button
             android:id="@+id/buttonUser"

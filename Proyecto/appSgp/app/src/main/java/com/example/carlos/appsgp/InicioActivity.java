@@ -22,6 +22,7 @@ public class InicioActivity extends AppCompatActivity {
         setContentView(R.layout.vista_inicio);
         botonUsuarios = (Button) findViewById(R.id.buttonUser);
         botonTareas = (Button) findViewById(R.id.buttonTareas);
+
         botonUsuarios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

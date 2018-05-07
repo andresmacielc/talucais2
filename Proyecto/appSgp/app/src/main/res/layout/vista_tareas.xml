@@ -3,8 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.carlos.appsgp.TareasActivity">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,10 +24,9 @@
             android:id="@+id/buttonTareaEliminar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/buttonAgregar"
-            android:layout_alignBottom="@+id/buttonAgregar"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="28dp"
+            android:layout_alignTop="@+id/buttonTareaAgregar"
+            android:layout_marginEnd="26dp"
             android:text="Eliminar" />
 
         <Button
@@ -45,7 +43,7 @@
             android:id="@+id/buttonTareaEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/buttonAgregar"
+            android:layout_alignTop="@+id/buttonTareaAgregar"
             android:layout_centerHorizontal="true"
             android:text="Editar" />
 

@@ -27,15 +27,49 @@ public class TareasActivity extends AppCompatActivity {
         setContentView(R.layout.vista_tareas);
 
         Intent intentTarea = getIntent();
-        coleccionTarea = intentTarea.getStringArrayListExtra("ColeccionTarea");
+        coleccionTarea = intentTarea.getStringArrayListExtra("Coleccion");
         listaTarea = (ListView) findViewById(R.id.listViewTarea);
         adaptadorColeccionTarea = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, coleccionTarea);
-        listaTarea.setAdapter(adaptadorColeccionTarea);
+        //listaTarea.setAdapter(adaptadorColeccionTarea);
         buttonTareaAgregar = (Button) findViewById(R.id.buttonTareaAgregar);
         buttonTareaEliminar = (Button) findViewById(R.id.buttonTareaEliminar);
         buttonTareaEditar = (Button) findViewById(R.id.buttonTareaEditar);
+        buttonTareaEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editarTarea();
+            }
+        });
+        buttonTareaAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                agregarTarea();
+            }
+        });
+        buttonTareaEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eliminarTarea();
+            }
+        });
 
 
 
     }
+
+    private void agregarTarea() {
+        Intent intentT = new Intent(this, AgregarTareasActivity.class);
+        startActivity(intentT);
+    }
+
+    private void editarTarea() {
+        Intent intentT = new Intent(this, EditarTareasActivity.class);
+        startActivity(intentT);
+    }
+
+    private void eliminarTarea() {
+        Intent intentT = new Intent(this, EliminarTareaActivity.class);
+        startActivity(intentT);
+    }
+
 }

@@ -31,7 +31,10 @@ public class TareasActivity extends AppCompatActivity {
         listaTarea = (ListView) findViewById(R.id.listViewTarea);
         adaptadorColeccionTarea = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, coleccionTarea);
         listaTarea.setAdapter(adaptadorColeccionTarea);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4d4dc7c7d8883bab01de5350ab9b2e628fedcfc3
         buttonTareaAgregar = (Button) findViewById(R.id.buttonTareaAgregar);
         buttonTareaEliminar = (Button) findViewById(R.id.buttonTareaEliminar);
         buttonTareaEditar = (Button) findViewById(R.id.buttonTareaEditar);

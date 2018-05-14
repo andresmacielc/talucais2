@@ -38,6 +38,7 @@ public class InicioActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     public void cargarListaUser(View view) {

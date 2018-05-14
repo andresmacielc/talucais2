@@ -46,6 +46,10 @@
         <activity
             android:name=".EliminarTareaActivity"
             android:parentActivityName=".TareasActivity" />
+        <activity
+            android:name=".TareaUsuarioRolActivity"
+            android:parentActivityName=".DetalleProyectoActivity" />
+
     </application>
 
 </manifest>

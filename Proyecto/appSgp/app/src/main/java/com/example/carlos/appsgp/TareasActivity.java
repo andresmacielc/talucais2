@@ -30,10 +30,12 @@ public class TareasActivity extends AppCompatActivity {
         coleccionTarea = intentTarea.getStringArrayListExtra("Coleccion");
         listaTarea = (ListView) findViewById(R.id.listViewTarea);
         adaptadorColeccionTarea = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, coleccionTarea);
-        //listaTarea.setAdapter(adaptadorColeccionTarea);
+        listaTarea.setAdapter(adaptadorColeccionTarea);
+
         buttonTareaAgregar = (Button) findViewById(R.id.buttonTareaAgregar);
         buttonTareaEliminar = (Button) findViewById(R.id.buttonTareaEliminar);
         buttonTareaEditar = (Button) findViewById(R.id.buttonTareaEditar);
+
         buttonTareaEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,10 +54,8 @@ public class TareasActivity extends AppCompatActivity {
                 eliminarTarea();
             }
         });
-
-
-
     }
+
 
     private void agregarTarea() {
         Intent intentT = new Intent(this, AgregarTareasActivity.class);

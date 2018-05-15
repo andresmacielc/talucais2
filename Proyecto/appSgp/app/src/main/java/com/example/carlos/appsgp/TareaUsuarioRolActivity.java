@@ -26,7 +26,7 @@ public class TareaUsuarioRolActivity extends AppCompatActivity {
         coleccionTareaUserRol = intentTareaUsuarioRol.getStringArrayListExtra("Coleccion");
         listaTareaUserRol = (ListView) findViewById(R.id.listViewTareaUsuarioRol);
         adapterColecTareaUserRol = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, coleccionTareaUserRol);
-        //listaTareaUserRol.setAdapter(adapterColecTareaUserRol);
+        listaTareaUserRol.setAdapter(adapterColecTareaUserRol);
 
     }
 }

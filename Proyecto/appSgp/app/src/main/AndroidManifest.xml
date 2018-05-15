@@ -29,6 +29,9 @@
             android:name=".TareasActivity"
             android:parentActivityName=".InicioActivity" />
         <activity
+            android:name=".DetalleProyectoActivity"
+            android:parentActivityName=".InicioActivity" />
+        <activity
             android:name=".AgregarUserActivity"
             android:parentActivityName=".UserActivity" />
         <activity

@@ -34,5 +34,24 @@
             android:layout_marginEnd="53dp"
             android:text="Tareas" />
 
+        <Button
+            android:id="@+id/buttonTareaDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="121dp"
+            android:text="Detalles" />
+
+        <TextView
+            android:id="@+id/textViewTareaDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="198dp"
+            android:layout_marginStart="31dp"
+            android:text="Ver en detalles las tareas de un Proyecto" />
+
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -58,15 +58,20 @@ public class EditarUserActivity extends AppCompatActivity {
   @SuppressLint("WrongConstant")
   public void listarInfo(){
       String mensaje;
+      Boolean estado = false;
       String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.usuario/"+editEditarId.getText().toString();
       mensaje = ServicioActivity.getId(url);
       if(mensaje != null) {
           try {
               obj = new JSONObject(mensaje);
+              if(obj.getString("status").equalsIgnoreCase("1")){
+                  estado = true;
+              }
               editTextUserName.setText(obj.getString("nombre"));
               editTextUserApellido.setText(obj.getString("apellido"));
               editTextUserEmail.setText(obj.getString("email"));
               editTextUserPassword.setText(obj.getString("password"));
+              sEstado.setChecked(estado);
               Toast.makeText(this,"MODIFIQUE LOS DATOS QUE DESEA Y PULSE GUARDAR", 2500).show();
               buttonGuardar.setEnabled(true);
           } catch (JSONException e) {
@@ -81,17 +86,22 @@ public class EditarUserActivity extends AppCompatActivity {
     public void editUser(){
       String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.usuario/"+editEditarId.getText().toString();
       int resp;
-
+      int estado;
     JSONObject loginParams = new JSONObject();
 
     try {
+        if(sEstado.isChecked()){
+            estado = 1;
+        }else{
+            estado = 0;
+        }
         loginParams.put("nombre", editTextUserName.getText().toString());
         loginParams.put("apellido", editTextUserApellido.getText().toString());
         loginParams.put("email", editTextUserEmail.getText().toString());
         loginParams.put("password", editTextUserPassword.getText().toString());
         loginParams.put("idUsuario", obj.getString("idUsuario"));
         loginParams.put("fechaCreacionUsuario", obj.getString("fechaCreacionUsuario"));
-        loginParams.put("status", obj.getString("status"));
+        loginParams.put("status", estado);
     } catch (JSONException e) {
         e.printStackTrace();
     }

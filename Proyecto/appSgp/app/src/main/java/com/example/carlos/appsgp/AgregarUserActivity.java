@@ -36,6 +36,7 @@ public class AgregarUserActivity extends AppCompatActivity {
     }
     @SuppressLint("WrongConstant")
     public void servicioUser(){
+        short checked = 0;
         EditText editTextUserName = (EditText) findViewById(R.id.editAgregarNombre);
         EditText editTextUserApellido = (EditText) findViewById(R.id.editAgregarApellido);
         EditText editTextUserEmail = (EditText) findViewById(R.id.editAgregarEmail);
@@ -43,14 +44,16 @@ public class AgregarUserActivity extends AppCompatActivity {
         Switch sEstado = (Switch) findViewById(R.id.agregarSwitchEstado);
         int message;
         JSONObject loginParams = new JSONObject();
-
+        if(sEstado.isChecked()){
+            checked = 1;
+        };
         try {
             loginParams.put("nombre", editTextUserName.getText().toString());
             loginParams.put("apellido", editTextUserApellido.getText().toString());
             loginParams.put("email", editTextUserEmail.getText().toString());
             loginParams.put("password", editTextUserPassword.getText().toString());
             loginParams.put("fechaCreacionUsuario", "2018-03-12T00:00:00-03:00");
-            loginParams.put("status", 1);
+            loginParams.put("status", checked);
 
         } catch (JSONException e) {
             e.printStackTrace();

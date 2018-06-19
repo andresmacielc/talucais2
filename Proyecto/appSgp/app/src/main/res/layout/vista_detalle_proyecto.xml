@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleProyectoActivity">
+
+    <TextView
+        android:id="@+id/textViewDetalleProyecto_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Ingrese el ID del Proyecto "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewIdProyecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="164dp"
+        android:text="ID Proyecto"
+        app:layout_constraintEnd_toStartOf="@+id/editTextIdProyecto"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextIdProyecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewIdProyecto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewIdProyecto" />
+
+    <Button
+        android:id="@+id/buttonTareaProyecto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="132dp"
+        android:text="Tareas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIdProyecto" />
+
+    <TextView
+        android:id="@+id/textViewDetalleProyecto_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="11dp"
+        android:text="para visualizar las tareas"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDetalleProyecto_1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetalleProyecto_1" />
+
+    <TextView
+        android:id="@+id/textViewDetalleProyecto_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Seleccione "
+        app:layout_constraintBottom_toTopOf="@+id/buttonTareaProyecto"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTareaProyecto" />
+
+</android.support.constraint.ConstraintLayout>

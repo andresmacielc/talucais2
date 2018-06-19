@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class InicioActivity extends AppCompatActivity {
     Button botonUsuarios;
     Button botonTareas;
+    Button buttonTareaDetalle;
 
     ArrayList<String> Coleccion = new ArrayList<String>();
 
@@ -22,6 +23,7 @@ public class InicioActivity extends AppCompatActivity {
         setContentView(R.layout.vista_inicio);
         botonUsuarios = (Button) findViewById(R.id.buttonUser);
         botonTareas = (Button) findViewById(R.id.buttonTareas);
+        buttonTareaDetalle = (Button) findViewById(R.id.buttonTareaDetalle);
 
         botonUsuarios.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +40,22 @@ public class InicioActivity extends AppCompatActivity {
 
             }
         });
+
+        buttonTareaDetalle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                verTareaDetalle(view);
+
+            }
+        });
+
+    }
+
+    private void verTareaDetalle(View view) {
+
+        Intent intentTD = new Intent(this, DetalleProyectoActivity.class);
+        startActivity(intentTD);
+
     }
 
     public void cargarListaUser(View view) {

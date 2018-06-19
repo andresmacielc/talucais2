@@ -29,6 +29,9 @@
             android:name=".TareasActivity"
             android:parentActivityName=".InicioActivity" />
         <activity
+            android:name=".DetalleProyectoActivity"
+            android:parentActivityName=".InicioActivity" />
+        <activity
             android:name=".AgregarUserActivity"
             android:parentActivityName=".UserActivity" />
         <activity
@@ -46,6 +49,10 @@
         <activity
             android:name=".EliminarTareaActivity"
             android:parentActivityName=".TareasActivity" />
+        <activity
+            android:name=".TareaUsuarioRolActivity"
+            android:parentActivityName=".DetalleProyectoActivity" />
+
     </application>
 
 </manifest>

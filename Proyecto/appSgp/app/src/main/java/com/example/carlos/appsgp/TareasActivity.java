@@ -34,6 +34,7 @@ public class TareasActivity extends AppCompatActivity {
         buttonTareaAgregar = (Button) findViewById(R.id.buttonTareaAgregar);
         buttonTareaEliminar = (Button) findViewById(R.id.buttonTareaEliminar);
         buttonTareaEditar = (Button) findViewById(R.id.buttonTareaEditar);
+
         buttonTareaEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,10 +53,8 @@ public class TareasActivity extends AppCompatActivity {
                 eliminarTarea();
             }
         });
-
-
-
     }
+
 
     private void agregarTarea() {
         Intent intentT = new Intent(this, AgregarTareasActivity.class);

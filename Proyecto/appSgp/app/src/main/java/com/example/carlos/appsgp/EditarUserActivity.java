@@ -108,8 +108,8 @@ public class EditarUserActivity extends AppCompatActivity {
         loginParams.put("idUsuario", obj.getString("idUsuario"));
         loginParams.put("fechaCreacionUsuario", obj.getString("fechaCreacionUsuario"));
         loginParams.put("status", estado);
-	loginParams.put("id_group", obj.getString("id_group"));
-        loginParams.put("id_rol"),obj.getString("id_rol"));
+	loginParams.put("id_group", editTextIdGrupo.getText().toString());
+        loginParams.put("id_rol"), editTextIdRol.getText().toString());
     } catch (JSONException e) {
         e.printStackTrace();
     }

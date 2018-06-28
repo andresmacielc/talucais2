@@ -16,7 +16,7 @@ public class TareaUsuarioRolActivity extends AppCompatActivity {
     ListView listaTareaUserRol;
     ArrayList<String> coleccionTareaUserRol = new ArrayList<String>();
 
-//se crea las tareas para cada usuario
+//se crea las tareas para cada usuario hola
 
 
     @Override

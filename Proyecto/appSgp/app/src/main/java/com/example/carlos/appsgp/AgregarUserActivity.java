@@ -41,7 +41,7 @@ public class AgregarUserActivity extends AppCompatActivity {
         EditText editTextUserApellido = (EditText) findViewById(R.id.editAgregarApellido);
         EditText editTextUserEmail = (EditText) findViewById(R.id.editAgregarEmail);
         EditText editTextUserPassword = (EditText) findViewById(R.id.editAgregarPassword);
-	EditText editTextIdGrupo = (EditText) findViewById(R.id.editAgregarGrupo);
+	    EditText editTextIdGrupo = (EditText) findViewById(R.id.editAgregarGrupo);
         EditText editTextIdRol = (EditText) findViewById(R.id.editAgregarRol);
         Switch sEstado = (Switch) findViewById(R.id.agregarSwitchEstado);
         int message;
@@ -56,8 +56,8 @@ public class AgregarUserActivity extends AppCompatActivity {
             loginParams.put("password", editTextUserPassword.getText().toString());
             loginParams.put("fechaCreacionUsuario", "2018-03-12T00:00:00-03:00");
             loginParams.put("status", checked);
-	    loginParams.put("id_group", editTextIdGrupo.getText().toString));
-            loginParams.put("id_rol"), editTextIdRol.getText().toString));
+            loginParams.put("id_group", editTextIdGrupo.getText().toString());
+            loginParams.put("id_rol", editTextIdRol.getText().toString());
 
         } catch (JSONException e) {
             e.printStackTrace();

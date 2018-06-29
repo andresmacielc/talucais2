@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/textViewEditarUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="18dp"
-            android:text="Editar Usuario" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/textViewEditarInfoId"
@@ -30,9 +24,9 @@
             android:id="@+id/editTextEditarId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textViewEditarUser"
-            android:layout_below="@+id/textViewEditarInfoId"
-            android:layout_marginTop="14dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="42dp"
             android:ems="10"
             android:inputType="number"
             android:text="ID" />
@@ -41,9 +35,8 @@
             android:id="@+id/editTextEditarNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textViewEditarUser"
-            android:layout_below="@+id/editTextEditarId"
-            android:layout_marginTop="51dp"
+            android:layout_below="@+id/textViewEditarInfoUser"
+            android:layout_centerHorizontal="true"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Nombre" />
@@ -52,8 +45,9 @@
             android:id="@+id/editTextApellido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/editTextEditarNombre"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="169dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Apellido" />
@@ -62,9 +56,9 @@
             android:id="@+id/editTextEditarEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textViewEditarUser"
-            android:layout_below="@+id/editTextApellido"
-            android:layout_marginTop="11dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="228dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Email" />
@@ -73,9 +67,7 @@
             android:id="@+id/editTextEditarPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/editTextEditarEmail"
-            android:layout_below="@+id/editTextEditarEmail"
-            android:layout_marginTop="15dp"
+            android:layout_centerInParent="true"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Password" />
@@ -84,46 +76,67 @@
             android:id="@+id/switchEditarEstado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editTextEditarPass"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="32dp"
-            android:layout_toEndOf="@+id/textViewEditarEstado" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/editTextEditarId"
+            android:layout_marginBottom="109dp" />
 
         <TextView
             android:id="@+id/textViewEditarEstado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/switchEditarEstado"
-            android:layout_alignStart="@+id/editTextEditarPass"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/switchEditarEstado"
+            android:layout_marginStart="34dp"
             android:text="Estado" />
 
         <Button
             android:id="@+id/buttonEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/editTextEditarPass"
-            android:layout_alignTop="@+id/textViewEditarEstado"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="36dp"
+            android:layout_toEndOf="@+id/textViewEditarInfoUser"
             android:text="Editar" />
 
         <TextView
             android:id="@+id/textViewEditarInfoUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editTextEditarId"
-            android:layout_marginTop="12dp"
-            android:layout_toEndOf="@+id/switchEditarEstado"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="95dp"
             android:text="Ingrese los datos a editar" />
 
         <Button
             android:id="@+id/buttonEditarGuardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/buttonEditar"
-            android:layout_alignBottom="@+id/buttonEditar"
-            android:layout_marginStart="22dp"
-            android:layout_toEndOf="@+id/textViewEditarUser"
+            android:layout_alignTop="@+id/buttonEditar"
+            android:layout_centerHorizontal="true"
             android:enabled="false"
             android:text="Guardar" />
+
+        <EditText
+            android:id="@+id/editTextEditarGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="224dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="ID Grupo" />
+
+        <EditText
+            android:id="@+id/editTextEditarRol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="166dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="ID Rol" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

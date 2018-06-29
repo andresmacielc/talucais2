@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RolesActivity">
+
+    <TextView
+        android:id="@+id/textViewRol"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:text="Gestion de roles"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <Button
+        android:id="@+id/buttonRolAgregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="265dp" />
+
+    <Button
+        android:id="@+id/buttonRolEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eliminar"
+        tools:layout_editor_absoluteX="247dp"
+        tools:layout_editor_absoluteY="265dp" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="368dp"
-        android:layout_height="495dp">
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/textViewAgregarUsuario"
@@ -14,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="17dp"
             android:text="Agregar Usuario" />
 
         <TextView
@@ -57,9 +60,8 @@
             android:id="@+id/agregarEstado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/agregarPassword"
-            android:layout_below="@+id/agregarPassword"
-            android:layout_marginTop="29dp"
+            android:layout_above="@+id/agregarButton"
+            android:layout_alignStart="@+id/agregarNombre"
             android:text="Estado" />
 
         <EditText
@@ -111,9 +113,48 @@
             android:id="@+id/agregarButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/textViewAgregarUsuario"
-            android:layout_below="@+id/agregarSwitchEstado"
-            android:layout_marginTop="47dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="127dp"
             android:text="Agregar" />
+
+        <EditText
+            android:id="@+id/editAgregarGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="162dp"
+            android:layout_toEndOf="@+id/agregarPassword"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editAgregarRol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="104dp"
+            android:layout_toEndOf="@+id/agregarPassword"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/agregarGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/agregarNombre"
+            android:layout_marginBottom="173dp"
+            android:text="Grupo" />
+
+        <TextView
+            android:id="@+id/agregarRol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/agregarNombre"
+            android:layout_marginBottom="118dp"
+            android:text="Rol" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="42dp">
 
         <TextView
             android:id="@+id/textViewEliminarUser"
@@ -22,10 +25,9 @@
             android:id="@+id/textViewEliminarId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textViewEliminarUser"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="75dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="180dp"
+            android:layout_toStartOf="@+id/textViewInfoEliminarId"
             android:text="ID: " />
 
         <Button
@@ -34,17 +36,16 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="137dp"
+            android:layout_marginBottom="259dp"
             android:text="Eliminar" />
 
         <EditText
             android:id="@+id/editTextEliminarId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewEliminarUser"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="61dp"
-            android:layout_toEndOf="@+id/textViewEliminarId"
+            android:layout_alignBaseline="@+id/textViewEliminarId"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="86dp"
             android:ems="10"
             android:inputType="number" />
 
@@ -52,9 +53,9 @@
             android:id="@+id/textViewInfoEliminarId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewEliminarUser"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="103dp"
             android:text="Ingrese el ID, del usuario a eliminar! " />
 
     </RelativeLayout>

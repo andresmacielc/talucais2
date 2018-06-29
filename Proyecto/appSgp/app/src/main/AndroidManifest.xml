@@ -52,7 +52,16 @@
         <activity
             android:name=".TareaUsuarioRolActivity"
             android:parentActivityName=".DetalleProyectoActivity" />
-
+        <activity android:name=".RolesActivity" />
+        <activity android:name=".AgregarRolesActivity" />
+        <activity android:name=".EliminarRolActivity" />
+        <activity android:name=".GruposActivity" />
+        <activity android:name=".AgregarGruposActivity" />
+        <activity android:name=".EditarGruposActivity" />
+        <activity android:name=".EliminarGrupoActivity" />
+        <activity android:name=".UserHistoryActivity" />
+        <activity android:name=".CrearUserHistoryActivity" />
+        <activity android:name=".EditarUserHistoryActivity"></activity>
     </application>
 
 </manifest>

@@ -76,8 +76,8 @@ public class EditarUserActivity extends AppCompatActivity {
               editTextUserEmail.setText(obj.getString("email"));
               editTextUserPassword.setText(obj.getString("password"));
               sEstado.setChecked(estado);
-     	      editTextIdGrupo.setText(obj.getStrinf("id_group"));
-              editTextIdRol.setText(obj.getStrinf("id_rol"));
+     	      //editTextIdGrupo.setText(obj.getStrinf("id_group"));
+              //editTextIdRol.setText(obj.getStrinf("id_rol"));
               Toast.makeText(this,"MODIFIQUE LOS DATOS QUE DESEA Y PULSE GUARDAR", 2500).show();
               buttonGuardar.setEnabled(true);
           } catch (JSONException e) {
@@ -108,8 +108,8 @@ public class EditarUserActivity extends AppCompatActivity {
         loginParams.put("idUsuario", obj.getString("idUsuario"));
         loginParams.put("fechaCreacionUsuario", obj.getString("fechaCreacionUsuario"));
         loginParams.put("status", estado);
-	loginParams.put("id_group", editTextIdGrupo.getText().toString());
-        loginParams.put("id_rol"), editTextIdRol.getText().toString());
+	    loginParams.put("id_group", editTextIdGrupo.getText().toString());
+        loginParams.put("id_rol", editTextIdRol.getText().toString());
     } catch (JSONException e) {
         e.printStackTrace();
     }

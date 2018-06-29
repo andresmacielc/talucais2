@@ -10,13 +10,15 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+
+//se crea las tareas para cada usuario
 public class TareaUsuarioRolActivity extends AppCompatActivity {
 
     ArrayAdapter<String> adapterColecTareaUserRol;
     ListView listaTareaUserRol;
     ArrayList<String> coleccionTareaUserRol = new ArrayList<String>();
 
-//se crea las tareas para cada usuario hola
+
 
 
     @Override

@@ -61,7 +61,10 @@
         <activity android:name=".EliminarGrupoActivity" />
         <activity android:name=".UserHistoryActivity" />
         <activity android:name=".CrearUserHistoryActivity" />
-        <activity android:name=".EditarUserHistoryActivity"></activity>
+        <activity android:name=".EditarUserHistoryActivity" />
+        <activity android:name=".SprintsActivity" />
+        <activity android:name=".CrearSprintsActivity" />
+        <activity android:name=".EditarSprintsActivity"></activity>
     </application>
 
 </manifest>

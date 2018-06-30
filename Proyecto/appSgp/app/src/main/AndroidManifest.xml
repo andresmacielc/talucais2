@@ -29,6 +29,18 @@
             android:name=".TareasActivity"
             android:parentActivityName=".InicioActivity" />
         <activity
+            android:name=".RolesActivity"
+            android:parentActivityName=".InicioActivity" />
+        <activity
+            android:name=".GruposActivity"
+            android:parentActivityName=".InicioActivity" />
+        <activity
+            android:name=".SprintsActivity"
+            android:parentActivityName=".InicioActivity" />
+        <activity
+            android:name=".UserHistoryActivity"
+            android:parentActivityName=".InicioActivity" />
+        <activity
             android:name=".DetalleProyectoActivity"
             android:parentActivityName=".InicioActivity" />
         <activity
@@ -52,19 +64,33 @@
         <activity
             android:name=".TareaUsuarioRolActivity"
             android:parentActivityName=".DetalleProyectoActivity" />
-        <activity android:name=".RolesActivity" />
-        <activity android:name=".AgregarRolesActivity" />
-        <activity android:name=".EliminarRolActivity" />
-        <activity android:name=".GruposActivity" />
-        <activity android:name=".AgregarGruposActivity" />
-        <activity android:name=".EditarGruposActivity" />
-        <activity android:name=".EliminarGrupoActivity" />
-        <activity android:name=".UserHistoryActivity" />
-        <activity android:name=".CrearUserHistoryActivity" />
-        <activity android:name=".EditarUserHistoryActivity" />
-        <activity android:name=".SprintsActivity" />
-        <activity android:name=".CrearSprintsActivity" />
-        <activity android:name=".EditarSprintsActivity"></activity>
+        <activity
+            android:name=".AgregarRolesActivity"
+            android:parentActivityName=".RolesActivity" />
+        <activity
+            android:name=".EliminarRolActivity"
+            android:parentActivityName=".RolesActivity" />
+        <activity
+            android:name=".AgregarGruposActivity"
+            android:parentActivityName=".GruposActivity" />
+        <activity
+            android:name=".EditarGruposActivity"
+            android:parentActivityName=".GruposActivity" />
+        <activity
+            android:name=".EliminarGrupoActivity"
+            android:parentActivityName=".GruposActivity" />
+        <activity
+            android:name=".CrearUserHistoryActivity"
+            android:parentActivityName=".UserHistoryActivity" />
+        <activity
+            android:name=".EditarUserHistoryActivity"
+            android:parentActivityName=".UserHistoryActivity" />
+        <activity
+            android:name=".CrearSprintsActivity"
+            android:parentActivityName=".SprintsActivity" />
+        <activity
+            android:name=".EditarSprintsActivity"
+            android:parentActivityName=".SprintsActivity" />
     </application>
 
 </manifest>

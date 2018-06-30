@@ -15,6 +15,11 @@ public class InicioActivity extends AppCompatActivity {
     Button botonTareas;
     Button buttonTareaDetalle;
 
+    Button buttonRol;
+    Button buttonGrupos;
+    Button buttonSprint;
+    Button buttonUserHistory;
+
     ArrayList<String> Coleccion = new ArrayList<String>();
 
     @Override
@@ -24,6 +29,11 @@ public class InicioActivity extends AppCompatActivity {
         botonUsuarios = (Button) findViewById(R.id.buttonUser);
         botonTareas = (Button) findViewById(R.id.buttonTareas);
         buttonTareaDetalle = (Button) findViewById(R.id.buttonTareaDetalle);
+
+        buttonRol = (Button) findViewById(R.id.buttonRol);
+        buttonGrupos = (Button) findViewById(R.id.buttonGrupos);
+        buttonSprint = (Button) findViewById(R.id.buttonSprint);
+        buttonUserHistory = (Button) findViewById(R.id.buttonUserHistory);
 
         botonUsuarios.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +59,79 @@ public class InicioActivity extends AppCompatActivity {
             }
         });
 
+
+        buttonRol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gestionRol(v);
+            }
+        });
+
+
+        buttonGrupos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gestionGrupos(v);
+            }
+        });
+
+
+        buttonSprint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gestionSprint(v);
+            }
+        });
+
+        buttonUserHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gestionUserHistory(v);
+            }
+        });
+
+    }
+
+    private void gestionUserHistory(View v) {
+        Intent intentUH = new Intent(this, UserHistoryActivity.class);
+        startActivity(intentUH);
+    }
+
+    private void gestionSprint(View v) {
+
+        String url = "http://" + ServicioActivity.ip + "/Sgpis2/webresources/spis2.entities.sprint";
+        JSONArray tareasJSON = ServicioActivity.get(this, url);
+        String tareaLista;
+        if (tareasJSON != null) {
+            for (int i = 0; i < tareasJSON.length(); i++) {
+                JSONObject obj = null;
+                try {
+                    obj = tareasJSON.getJSONObject(i);
+                    tareaLista = "\nID Tarea: " + obj.getString("idSprint");
+                    tareaLista += "\nNombre: " + obj.getString("nombre");
+                    tareaLista += "\nDescripcion: " + obj.getString("descripcion");
+                    tareaLista += "\nFecha Inicio: " + obj.getString("fechaInicio");
+                    tareaLista += "\nFecha Fin: " + obj.getString("fechaFin");
+                    Coleccion.add(tareaLista);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            Intent intentS = new Intent(this, SprintsActivity.class);
+            intentS.putExtra("Coleccion", Coleccion);
+            startActivity(intentS);
+        }
+    }
+
+    private void gestionGrupos(View v) {
+        Intent intentG = new Intent(this, GruposActivity.class);
+        startActivity(intentG);
+    }
+
+    private void gestionRol(View v) {
+        Intent intentR = new Intent(this, RolesActivity.class);
+        startActivity(intentR);
     }
 
     private void verTareaDetalle(View view) {

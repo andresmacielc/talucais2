@@ -38,19 +38,61 @@
             android:id="@+id/buttonTareaDetalle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="121dp"
+            android:layout_centerInParent="true"
             android:text="Detalles" />
 
         <TextView
             android:id="@+id/textViewTareaDetalle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="238dp"
+            android:text="Ver en detalles las tareas de un Proyecto" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="203dp"
-            android:text="Ver en detalles las tareas de un Proyecto" />
+            android:layout_marginBottom="226dp"
+            android:text="Gestionar" />
+
+        <Button
+            android:id="@+id/buttonRol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/buttonUser"
+            android:layout_marginBottom="146dp"
+            android:text="Rol" />
+
+        <Button
+            android:id="@+id/buttonGrupos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/buttonRol"
+            android:layout_centerHorizontal="true"
+            android:text="Grupos" />
+
+        <Button
+            android:id="@+id/buttonSprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/buttonRol"
+            android:layout_marginEnd="43dp"
+            android:text="Sprint" />
+
+        <Button
+            android:id="@+id/buttonUserHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="71dp"
+            android:text="User History" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

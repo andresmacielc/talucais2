@@ -9,6 +9,8 @@ import Spis2.entities.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
 
+import org.json.simple.JSONObject;
+
 /**
  *
  * @author carlos
@@ -70,5 +72,38 @@ public abstract class AbstractFacade<T> {
             return false;
         else
             return true;
+    }
+    
+    /*Se agrego una nueva funcion para el login que retorna u JSON*/
+    public String login_object(Usuario user){//se recibe un objeto user
+        
+        JSONObject obj = new JSONObject();
+        String retorno_consulta;
+        String[] campos_consulta;
+        
+        String consulta = "Select nombre ||','|| apellido ||','|| status ||','|| id_group ||','|| id_rol"
+                + " from Usuario where email = '" + user.getEmail() + "'"
+                + " and password = " + "'" + user.getPassword() + "'"; //se construye la consulta
+        javax.persistence.Query q = getEntityManager().createNativeQuery(consulta);//se consulta por medio de la persistencia
+        
+        if(q.getResultList().isEmpty())//se consulta se hubo resultados, si no el usuario o pass estan incorrectos
+            return obj.toString();
+        else
+        retorno_consulta = q.getSingleResult().toString();
+            campos_consulta = retorno_consulta.split(",");
+            
+        try {
+            obj.put("nombre", campos_consulta[0]);
+            /*obj.put("apellido", campos_consulta[1]);
+            obj.put("status", campos_consulta[2]);
+            obj.put("id_group", campos_consulta[3]);
+            obj.put("id_rol", campos_consulta[4]);*/
+
+        } catch (Exception e) {
+            String message = e.getMessage();
+            System.out.println(message);
+        }
+        
+            return obj.toString();
     }
 }

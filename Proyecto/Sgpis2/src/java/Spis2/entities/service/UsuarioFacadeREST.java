@@ -19,6 +19,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -103,4 +104,16 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
         /*se llama a ala funcion de la clase abstracta*/
         return super.login(entity);
     }
+    
+        /*Se crea el servicio rest para el login*/
+    @POST
+    @Path("login_object")//como se va a acceder al login
+    @Produces(MediaType.APPLICATION_JSON)//lo que va a retornar
+    @Consumes(MediaType.APPLICATION_JSON)//lo que recibe
+    @Override
+    public String login_object(Usuario entity){
+        /*se llama a ala funcion de la clase abstracta*/
+        return super.login_object(entity);
+    }
+    
 }

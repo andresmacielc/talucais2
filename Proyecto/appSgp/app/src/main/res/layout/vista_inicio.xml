@@ -38,7 +38,9 @@
             android:id="@+id/buttonTareaDetalle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="260dp"
             android:text="Detalles" />
 
         <TextView
@@ -47,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="238dp"
+            android:layout_marginTop="227dp"
             android:text="Ver en detalles las tareas de un Proyecto" />
 
         <TextView
@@ -56,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="226dp"
+            android:layout_marginBottom="215dp"
             android:text="Gestionar" />
 
         <Button
@@ -65,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/buttonUser"
-            android:layout_marginBottom="146dp"
+            android:layout_marginBottom="142dp"
             android:text="Rol" />
 
         <Button

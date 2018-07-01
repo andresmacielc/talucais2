@@ -94,10 +94,10 @@ public abstract class AbstractFacade<T> {
             
         try {
             obj.put("nombre", campos_consulta[0]);
-            /*obj.put("apellido", campos_consulta[1]);
+            obj.put("apellido", campos_consulta[1]);
             obj.put("status", campos_consulta[2]);
             obj.put("id_group", campos_consulta[3]);
-            obj.put("id_rol", campos_consulta[4]);*/
+            obj.put("id_rol", campos_consulta[4]);
 
         } catch (Exception e) {
             String message = e.getMessage();

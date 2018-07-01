@@ -52,14 +52,14 @@ public class RolesActivity extends AppCompatActivity {
     }
 
     private void agregarRol() {
-        Intent intentT = new Intent(this, AgregarRolesActivity.class);
-        startActivity(intentT);
+        Intent intentAR = new Intent(this, AgregarRolesActivity.class);
+        startActivity(intentAR);
     }
 
 
     private void eliminarRol() {
-        Intent intentT = new Intent(this, EliminarRolActivity.class);
-        startActivity(intentT);
+        Intent intentER = new Intent(this, EliminarRolActivity.class);
+        startActivity(intentER);
     }
 
 }

@@ -39,7 +39,7 @@ public class UserHistoryActivity extends AppCompatActivity {
                 editarUserHistory();
             }
         });
-        buttonGrupoCrear.setOnClickListener(new View.OnClickListener() {
+        buttonUserHistoryCrear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 crearUserHistory();
@@ -48,12 +48,12 @@ public class UserHistoryActivity extends AppCompatActivity {
     }
 
     private void crearUserHistory() {
-        Intent intentT = new Intent(this, CrearUserHistoryActivity.class);
-        startActivity(intentT);
+        Intent intentCUH = new Intent(this, CrearUserHistoryActivity.class);
+        startActivity(intentCUH);
     }
 
     private void editarUserHistory() {
-        Intent intentT = new Intent(this, EditarUserHistoryActivity.class);
-        startActivity(intentT);
+        Intent intentEUH = new Intent(this, EditarUserHistoryActivity.class);
+        startActivity(intentEUH);
     }
 }

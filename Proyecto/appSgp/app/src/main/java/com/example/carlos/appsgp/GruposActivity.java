@@ -28,7 +28,7 @@ public class GruposActivity extends AppCompatActivity {
 
         Intent intentGrupo = getIntent();
         coleccionGrupo = intentGrupo.getStringArrayListExtra("Coleccion");
-        listaGrupo = (ListView) findViewById(R.id.listViewGrupo);
+        listaGrupo = (ListView) findViewById(R.id.listViewUserHistory);
         adaptadorColeccionGrupo = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, coleccionGrupo);
         listaGrupo.setAdapter(adaptadorColeccionGrupo);
         buttonGrupoAgregar = (Button) findViewById(R.id.buttonGrupoAgregar);
@@ -56,18 +56,18 @@ public class GruposActivity extends AppCompatActivity {
     }
 
     private void agregarGrupo() {
-        Intent intentT = new Intent(this, AgregarGruposActivity.class);
-        startActivity(intentT);
+        Intent intentAG = new Intent(this, AgregarGruposActivity.class);
+        startActivity(intentAG);
     }
 
     private void editarGrupo() {
-        Intent intentT = new Intent(this, EditarGruposActivity.class);
-        startActivity(intentT);
+        Intent intentEG = new Intent(this, EditarGruposActivity.class);
+        startActivity(intentEG);
     }
 
     private void eliminarGrupo() {
-        Intent intentT = new Intent(this, EliminarGrupoActivity.class);
-        startActivity(intentT);
+        Intent intentDG = new Intent(this, EliminarGrupoActivity.class);
+        startActivity(intentDG);
     }
 
 }

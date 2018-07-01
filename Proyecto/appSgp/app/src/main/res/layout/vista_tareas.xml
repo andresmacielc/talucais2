@@ -13,7 +13,7 @@
         tools:layout_editor_absoluteY="0dp">
 
         <ListView
-            android:id="@+id/listViewTarea"
+            android:id="@+id/listViewGrupo"
             android:layout_width="match_parent"
             android:layout_height="330dp"
             android:layout_alignParentBottom="true"

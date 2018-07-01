@@ -28,7 +28,7 @@ public class TareasActivity extends AppCompatActivity {
 
         Intent intentTarea = getIntent();
         coleccionTarea = intentTarea.getStringArrayListExtra("Coleccion");
-        listaTarea = (ListView) findViewById(R.id.listViewTarea);
+        listaTarea = (ListView) findViewById(R.id.listViewGrupo);
         adaptadorColeccionTarea = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, coleccionTarea);
         listaTarea.setAdapter(adaptadorColeccionTarea);
         buttonTareaAgregar = (Button) findViewById(R.id.buttonTareaAgregar);

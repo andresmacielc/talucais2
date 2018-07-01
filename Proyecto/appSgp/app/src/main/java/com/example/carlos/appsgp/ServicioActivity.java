@@ -77,7 +77,7 @@ public class ServicioActivity extends AppCompatActivity {
     }
 
     /*Metodo que realiza la conexion (POST) con el servidor y el servidor no responde, en este caso se
-    retorna el codigo para saber si todo salio OK */
+    retorna el codigo para saber si salio OK */
     @SuppressLint("WrongConstant")
     public static int postSinRespuesta(Context context,String targetURL,String urlParameters) {
 
@@ -103,7 +103,7 @@ public class ServicioActivity extends AppCompatActivity {
             wr.writeBytes(urlParameters);
             wr.flush();
             wr.close();
-            //se retorna el codigo de la conexion, ej. 204 si todo salio ok
+            //se retorna el codigo de la conexion, ej. 204 si salio ok
             return connection.getResponseCode();
 
         } catch (Exception e) {

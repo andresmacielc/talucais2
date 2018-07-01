@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         //recupera los valores ingresados por el usuario
         Intent intent = new Intent(this, InicioActivity.class);
+
+        //startActivity(intent);
+
         EditText editTextUserName = (EditText) findViewById(R.id.editTextEmail);
         EditText editTextPassword = (EditText) findViewById(R.id.editTextPass);
         String message;

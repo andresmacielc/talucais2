@@ -76,8 +76,8 @@ public class EditarUserActivity extends AppCompatActivity {
               editTextUserEmail.setText(obj.getString("email"));
               editTextUserPassword.setText(obj.getString("password"));
               sEstado.setChecked(estado);
-     	      editTextIdGrupo.setText(obj.getStrinf("id_group"));
-              editTextIdRol.setText(obj.getStrinf("id_rol"));
+     	      editTextIdGrupo.setText(obj.getString("id_group"));
+              editTextIdRol.setText(obj.getString("id_rol"));
               Toast.makeText(this,"MODIFIQUE LOS DATOS QUE DESEA Y PULSE GUARDAR", 2500).show();
               buttonGuardar.setEnabled(true);
           } catch (JSONException e) {

@@ -29,7 +29,7 @@ public class EditarGruposActivity extends AppCompatActivity {
 
         editTextEditarIdGrupos = (EditText) findViewById(R.id.editTextEditarIdGrupos);
         editTextEditarIdProyecto = (EditText) findViewById(R.id.editTextEditarIdProyecto);
-        editTextDescripcionGrupos = (EditText) findViewById(R.id.editTextDescripcionGrupos);
+        editTextDescripcionGrupos = (EditText) findViewById(R.id.editTextDescripcionGrupo);
 
         buttonEditarGrupos = (Button)findViewById(R.id.buttonEditarGrupos);
         buttonEditarGuardarGrupo= (Button)findViewById(R.id.buttonEditarGuardarGrupo);
@@ -45,7 +45,7 @@ public class EditarGruposActivity extends AppCompatActivity {
         buttonEditarGuardarGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editar();
+                editarGrupos();
             }
         });
 
@@ -60,9 +60,9 @@ public class EditarGruposActivity extends AppCompatActivity {
         JSONObject loginParams = new JSONObject();
 
         try {
-            loginParams.put("id_grupo", editTextIdGrupo.getText().toString());
+            loginParams.put("id_grupo", editTextEditarIdGrupos.getText().toString());
             loginParams.put("descripcion", editTextDescripcionGrupos.getText().toString());
-            loginParams.put("id_proyecto", editTextIdProyecto.getText().toString());
+            loginParams.put("id_proyecto", editTextEditarIdProyecto.getText().toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }

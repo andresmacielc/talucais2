@@ -44,14 +44,12 @@ public class CrearUserHistoryActivity extends AppCompatActivity {
         int message;
         JSONObject loginParams = new JSONObject();
 
-
-        JSONObject loginParams = new JSONObject();
         try {
 
-            loginParams.put("id_history", editTextIdSprint.getText().toString());
+            loginParams.put("id_history", editTextIdHistory.getText().toString());
             loginParams.put("nombre", editTextNombre.getText().toString());
             loginParams.put("fecha_creacion", editTextFecha_creacion.getText().toString());
-            loginParams.put("status"), editTextAgregarEstado.getText().toString());
+            loginParams.put("status", editTextAgregarEstado.getText().toString());
             loginParams.put("descripcion", editTextDescripcionUserHistory.getText().toString());
             loginParams.put("id_sprint", editTextIdSprint.getText().toString());
 

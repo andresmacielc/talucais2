@@ -11,9 +11,11 @@
         android:id="@+id/textViewAgregarRol"
         android:layout_width="wrap_content"
         android:layout_height="16dp"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="71dp"
         android:text="Agregar un rol"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="71dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextDescripcionRol"

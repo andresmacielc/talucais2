@@ -10,24 +10,30 @@
         android:id="@+id/textViewRol"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="149dp"
         android:text="Gestion de roles"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="150dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonRolAgregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="265dp"
         android:text="Agregar"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="265dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonRolEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="98dp"
         android:text="Eliminar"
-        tools:layout_editor_absoluteX="247dp"
-        tools:layout_editor_absoluteY="265dp" />
+        app:layout_constraintStart_toEndOf="@+id/buttonRolAgregar"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRol" />
 
 </android.support.constraint.ConstraintLayout>

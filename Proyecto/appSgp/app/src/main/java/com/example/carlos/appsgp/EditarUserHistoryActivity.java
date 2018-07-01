@@ -32,14 +32,14 @@ public class EditarUserHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vista_user_history_editar);
 
-        EditText editTextIdHistory = (EditText) findViewById(R.id.editTextIdHistory);
-        EditText editTextNombre = (EditText) findViewById(R.id.editTextNombre);
-        EditText editTextDescripcionUserHistory = (EditText) findViewById(R.id.editTextDescripcionUserHistory);
-        EditText editTextIdProyecto = (EditText) findViewById(R.id.esitTextIdProyecto);
-        EditText editTextAgregarEstado = (EditText) findViewById(R.id.esitTextAgregarEstado);
-        EditText editTextFecha_creacion = (EditText) findViewById(R.id.esitTextFecha_creacion);
+        editTextIdHistory = (EditText) findViewById(R.id.editTextIdHistory);
+        editTextNombre = (EditText) findViewById(R.id.editTextNombre);
+        editTextDescripcionUserHistory = (EditText) findViewById(R.id.editTextDescripcionUserHistory);
+        editTextIdProyecto = (EditText) findViewById(R.id.editTextIdProyecto);
+        editTextAgregarEstado = (EditText) findViewById(R.id.editTextAgregarEstado);
+        editTextFecha_creacion = (EditText) findViewById(R.id.editTextFecha_creacion);
 
-        buttonEditarUserHistory = (Button)findViewById(R.id.buttonEditarUserHistory);
+        buttonEditarUserHistory = (Button)findViewById(R.id.buttonEditarUserHisory);
         buttonEditarGuardarUserHistory= (Button)findViewById(R.id.buttonEditarGuardarUserHistory);
 
         buttonEditarUserHistory.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class EditarUserHistoryActivity extends AppCompatActivity {
         buttonEditarGuardarUserHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editar();
+                editUserHistory();
             }
         });
 
@@ -63,20 +63,20 @@ public class EditarUserHistoryActivity extends AppCompatActivity {
     public void listarInfoUserHistory(){
         String mensaje;
 
-        String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.user_history/"+editEditarId.getText().toString();
+        String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.user_history/"+editTextIdHistory.getText().toString();
         mensaje = ServicioActivity.getId(url);
         if(mensaje != null) {
             try {
-                editTextIdHistory.setText(obj.getString("id_history"));
-                editTextNombre.setText(obj.getString("nombre"));
-                editTextDescripcionUserHistory.setText(obj.getString("descripcion"));
-                editTextIdProyecto.setText(obj.getString("id_proyecto"));
-                editTextAgregarEstado.setText(obj.getString("status"));
-                editTextFecha_creacion.setText(obj.getString("fecha_creacion"));
+                editTextIdHistory.setText(objeto.getString("id_history"));
+                editTextNombre.setText(objeto.getString("nombre"));
+                editTextDescripcionUserHistory.setText(objeto.getString("descripcion"));
+                editTextIdProyecto.setText(objeto.getString("id_proyecto"));
+                editTextAgregarEstado.setText(objeto.getString("status"));
+                editTextFecha_creacion.setText(objeto.getString("fecha_creacion"));
 
 
                 Toast.makeText(this,"MODIFIQUE LOS DATOS QUE DESEA Y PULSE GUARDAR", 2500).show();
-                buttonGuardar.setEnabled(true);
+                buttonEditarGuardarUserHistory.setEnabled(true);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -87,7 +87,7 @@ public class EditarUserHistoryActivity extends AppCompatActivity {
 
     @SuppressLint("WrongConstant")
     public void editUserHistory(){
-        String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.user_history/"+editEditarId.getText().toString();
+        String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.user_history/"+editTextIdHistory.getText().toString();
         int resp;
 
         JSONObject loginParams = new JSONObject();
@@ -96,7 +96,7 @@ public class EditarUserHistoryActivity extends AppCompatActivity {
             loginParams.put("id_history", editTextIdHistory.getText().toString());
             loginParams.put("nombre", editTextNombre.getText().toString());
             loginParams.put("fecha_creacion", editTextFecha_creacion.getText().toString());
-            loginParams.put("status", editTextAgregarEstado.getText().toString);
+            loginParams.put("status", editTextAgregarEstado.getText().toString());
             loginParams.put("descripcion", editTextDescripcionUserHistory.getText().toString());
             loginParams.put("id_proyecto", editTextIdProyecto.getText().toString());
 

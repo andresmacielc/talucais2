@@ -116,4 +116,13 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
         return super.login_object(entity);
     }
     
+    @POST
+    @Path("tareas_usuario")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)//lo que recibe
+    @Override
+    public String tareas_usuario( Usuario id_usuario) {
+        return super.tareas_usuario(id_usuario);
+    }
+    
 }

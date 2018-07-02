@@ -7,13 +7,10 @@ package Spis2.entities.service;
 
 import Spis2.entities.Usuario;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
+import org.json.simple.JSONArray;
 
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -91,7 +88,7 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createNativeQuery(consulta);//se consulta por medio de la persistencia
         
         if(q.getResultList().isEmpty())//se consulta se hubo resultados, si no el usuario o pass estan incorrectos
-            return obj.toString();
+            return "";
         else
         retorno_consulta = q.getSingleResult().toString();
             campos_consulta = retorno_consulta.split("-");
@@ -109,4 +106,44 @@ public abstract class AbstractFacade<T> {
         }
         return obj.toString();
     }
+    
+    
+    /*Se agrego una nueva funcion para el login que retorna un JSON*/
+    public String tareas_usuario(Usuario user){//se recibe un objeto user
+        
+        //JSONObject obj = new JSONObject();
+        JSONArray objJsonArray = new JSONArray();
+        List retorno_consulta;
+        String[] campos_consulta;
+        
+        String consulta = "Select sprint.id_sprint ||'-'|| sprint.nombre"
+                + " from usuario join groups on usuario.id_group = groups.id_group"
+                + " join projects on projects.id_project = groups.id_project "
+                + " join sprint on sprint.id_project = projects.id_project"
+                + " where usuario.id_usuario = '" + user.getIdUsuario().toString() + "'"; 
+        //se construye la consulta
+        
+        javax.persistence.Query q = getEntityManager().createNativeQuery(consulta);//se consulta por medio de la persistencia
+        
+        if(q.getResultList().isEmpty())//se consulta se hubo resultados, si no el usuario o pass estan incorrectos
+            return "";
+        else
+        retorno_consulta = q.getResultList();
+            try {
+
+                for (int posicion = 0; posicion < retorno_consulta.size(); posicion++) {
+                    JSONObject obj = new JSONObject();
+                    campos_consulta = retorno_consulta.get(posicion).toString().split("-");
+                    obj.put("Numero de tarea", campos_consulta[0]);
+                    obj.put("Nombre de la tarea", campos_consulta[1]);
+                    objJsonArray.add(obj); 
+                }
+
+            } catch (Exception e) {
+                String message = e.getMessage();
+                System.out.println(message);
+            }
+        return objJsonArray.toString();
+    }    
+    
 }

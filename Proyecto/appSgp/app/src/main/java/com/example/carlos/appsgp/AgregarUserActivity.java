@@ -48,7 +48,7 @@ public class AgregarUserActivity extends AppCompatActivity {
         JSONObject loginParams = new JSONObject();
         if(sEstado.isChecked()){
             checked = 1;
-        };
+        }
         try {
             loginParams.put("nombre", editTextUserName.getText().toString());
             loginParams.put("apellido", editTextUserApellido.getText().toString());

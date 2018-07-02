@@ -34,7 +34,7 @@ public class AgregarRolesActivity extends AppCompatActivity {
     @SuppressLint("WrongConstant")
     public void servicioAgregarRol() {
         short checked = 0;
-        EditText editTextIdRol = (EditText) findViewById(R.id.editAgregarRol);
+        EditText editTextIdRol = (EditText) findViewById(R.id.editTextIdAgregarRol);
         EditText editTextDescripcionRol = (EditText) findViewById(R.id.editTextDescripcionRol);
         Switch sEstado = (Switch) findViewById(R.id.agregarSwitchEstado);
         int message;
@@ -42,10 +42,9 @@ public class AgregarRolesActivity extends AppCompatActivity {
         if (sEstado.isChecked()) {
             checked = 1;
         }
-        ;
         try {
-            loginParams.put("id_rol", editTextIdRol.getText().toString());
-            loginParams.put("descripion", editTextDescripcionRol.getText().toString());
+            loginParams.put("idRol", editTextIdRol.getText().toString());
+            loginParams.put("descripcion", editTextDescripcionRol.getText().toString());
             loginParams.put("status", checked);
         } catch (JSONException e) {
             e.printStackTrace();

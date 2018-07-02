@@ -91,6 +91,8 @@
         <activity
             android:name=".EditarSprintsActivity"
             android:parentActivityName=".SprintsActivity" />
+        android:name=".MainActivity"
+        android:parentActivityName=".InicioActivity" />
     </application>
 
 </manifest>

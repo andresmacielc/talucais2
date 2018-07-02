@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.simple.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 JSONObject user = new JSONObject();
                 //aca hay que convertir el objeto.
+                //JSONParser parser = new JSONParser();
+
                 startActivity(intent);
             }
 

@@ -24,7 +24,7 @@ public class ServicioActivity extends AppCompatActivity {
     final static private int duracionToast = 10;
     final static private int timeout = 5000;
 
-    final static public String ip = "192.168.43.26:8080";
+    final static public String ip = "192.168.43.57:8080";
 
     /*Metodo que realiza la conexion (POST) con el servidor y envia la respuesta del
     servidor*/

@@ -99,6 +99,11 @@ public class InicioActivity extends AppCompatActivity {
             }
         });
 
+        buttonGrupos.setEnabled(false);
+        buttonUserHistory.setEnabled(false);
+        buttonTareaDetalle.setEnabled(false);
+
+
     }
 
     private void cerrarSesion(View v) {

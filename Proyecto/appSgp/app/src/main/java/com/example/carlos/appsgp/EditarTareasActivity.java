@@ -22,6 +22,7 @@ public class EditarTareasActivity extends AppCompatActivity {
     EditText editTextDescripcionTareas;
     EditText editTextEditarTareasFechaIni;
     EditText editTextEditarTareasFechaFin;
+    EditText editTextIdProject;
     JSONObject objeto;
 
     @Override
@@ -66,8 +67,10 @@ public class EditarTareasActivity extends AppCompatActivity {
         try {
             loginParams.put("nombre", editTextEditarNombreTareas.getText().toString());
             loginParams.put("descripcion", editTextDescripcionTareas.getText().toString());
-            loginParams.put("fechaInicio", editTextEditarTareasFechaIni.getText().toString());
-            loginParams.put("fechaFin", editTextEditarTareasFechaFin.getText().toString());
+
+            loginParams.put("fechaInicio", editTextEditarTareasFechaIni.getText().toString() + "T00:00:00-03:00");
+            loginParams.put("fechaFin", editTextEditarTareasFechaFin.getText().toString() + "T00:00:00-03:00");
+
             loginParams.put("idSprint", objeto.getString("idSprint"));
         } catch (JSONException e) {
             e.printStackTrace();
@@ -84,7 +87,7 @@ public class EditarTareasActivity extends AppCompatActivity {
     private void listarInfoTareas() {
 
         String mensaje;
-        String url = "http://"+ServicioActivity.ip+"/Sgpis2/webresources/spis2.entities.sprint/"+editTextEditarIdTareas.getText().toString();
+        String url = "http://"+ServicioActivity.ip + "/Sgpis2/webresources/spis2.entities.sprint/" + editTextEditarIdTareas.getText().toString();
         mensaje = ServicioActivity.getId(url);
         if(mensaje != null) {
             try {
@@ -93,6 +96,7 @@ public class EditarTareasActivity extends AppCompatActivity {
                 editTextDescripcionTareas.setText(objeto.getString("descripcion"));
                 editTextEditarTareasFechaIni.setText(objeto.getString("fechaInicio"));
                 editTextEditarTareasFechaFin.setText(objeto.getString("fechaFin"));
+
                 Toast.makeText(this,"Modificar y pulsar Guardar", 2500).show();
                 buttonEditarGuardarTarea.setEnabled(true);
             } catch (JSONException e) {

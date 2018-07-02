@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textViewEditarTareas"
@@ -14,16 +19,16 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="15dp"
             android:text="Editar Tarea" />
 
         <TextView
             android:id="@+id/textViewEditarInfoIdTareas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewEditarTareas"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="43dp"
             android:text="ID de la Tarea a editar" />
 
         <EditText
@@ -31,8 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/textViewEditarTareas"
-            android:layout_below="@+id/textViewEditarInfoIdTareas"
-            android:layout_marginTop="14dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="74dp"
             android:ems="10"
             android:inputType="number"
             android:text="ID Tarea" />
@@ -42,8 +47,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/textViewEditarTareas"
-            android:layout_below="@+id/editTextEditarIdTareas"
-            android:layout_marginTop="51dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="157dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Nombre" />
@@ -52,8 +57,9 @@
             android:id="@+id/editTextDescripcionTareas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/editTextEditarNombreTareas"
-            android:layout_centerVertical="true"
+            android:layout_alignEnd="@+id/textViewEditarTareas"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="213dp"
             android:ems="10"
             android:inputType="text"
             android:text="Descripcion" />
@@ -63,8 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/textViewEditarTareas"
-            android:layout_below="@+id/editTextDescripcionTareas"
-            android:layout_marginTop="11dp"
+            android:layout_below="@+id/buttonEditarTareas"
             android:ems="10"
             android:inputType="text"
             android:text="Fecha Inicio" />
@@ -73,9 +78,9 @@
             android:id="@+id/editTextEditarTareasFechaFin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/editTextEditarTareasFechaIni"
-            android:layout_below="@+id/editTextEditarTareasFechaIni"
-            android:layout_marginTop="15dp"
+            android:layout_alignEnd="@+id/textViewEditarTareas"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="112dp"
             android:ems="10"
             android:inputType="text"
             android:text="Fecha Fin" />
@@ -84,8 +89,8 @@
             android:id="@+id/buttonEditarTareas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/buttonEditarGuardarTarea"
-            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/textViewEditarInfoTareas"
             android:text="Editar" />
 
         <TextView
@@ -93,18 +98,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="152dp"
+            android:layout_alignStart="@+id/textViewEditarInfoIdTareas"
+            android:layout_marginTop="128dp"
             android:text="Ingrese los datos a editar" />
 
         <Button
             android:id="@+id/buttonEditarGuardarTarea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="36dp"
-            android:layout_marginEnd="49dp"
+            android:layout_alignStart="@+id/buttonEditarTareas"
+            android:layout_below="@+id/editTextEditarTareasFechaIni"
             android:enabled="false"
             android:text="Guardar" />
 

@@ -12,24 +12,24 @@
         android:id="@+id/textViewagregarTareas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
+        android:layout_marginBottom="75dp"
+        android:layout_marginLeft="127dp"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="3dp"
         android:text="Agregar Tarea"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNombreTarea"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/agregarNombreTarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
         android:text="Nombre"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDescripcionTarea"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextNombreTarea" />
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        tools:layout_editor_absoluteY="116dp" />
 
     <TextView
         android:id="@+id/agregarDescipcionTarea"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="40dp"
         android:text="Descripcion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agregarNombreTarea" />
@@ -48,80 +48,83 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
         android:text="Fecha de Inicio"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextAgregarFechaIniTarea"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agregarDescipcionTarea" />
 
     <TextView
         android:id="@+id/agregarFechaFinTarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
         android:text="Fecha de Fin"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextAgregarFechaFinTarea"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/agregarFechaIniTarea" />
 
     <Button
         android:id="@+id/buttonAgregarTarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="49dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginRight="125dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="28dp"
         android:text="Agregar Tarea"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/agregarFechaFinTarea" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIdProject" />
 
     <EditText
         android:id="@+id/editTextNombreTarea"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginBottom="117dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginTop="117dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/agregarFechaIniTarea"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/agregarNombreTarea"
+        tools:layout_editor_absoluteY="97dp" />
 
     <EditText
         android:id="@+id/editTextDescripcionTarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginTop="186dp"
+        android:layout_marginLeft="51dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/agregarDescipcionTarea"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNombreTarea" />
 
     <EditText
         android:id="@+id/editTextAgregarFechaIniTarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/editTextDescripcionTarea" />
 
     <EditText
         android:id="@+id/editTextAgregarFechaFinTarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/agregarFechaFinTarea"
         app:layout_constraintTop_toBottomOf="@+id/editTextAgregarFechaIniTarea" />
 
     <android.support.constraint.Guideline
@@ -130,5 +133,31 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="364dp" />
+
+    <EditText
+        android:id="@+id/editTextIdProject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="31dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toEndOf="@+id/textView37"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAgregarFechaFinTarea" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="48dp"
+        android:text="Id del Proyecto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/agregarFechaFinTarea"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

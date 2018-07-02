@@ -33,19 +33,23 @@ public class AgregarTareasActivity extends AppCompatActivity {
     @SuppressLint("WrongConstant")
     private void servicioAgregarTarea() {
 
+
         EditText editTextNombreTarea = (EditText) findViewById(R.id.editTextNombreTarea);
         EditText editTextDescripcionTarea = (EditText) findViewById(R.id.editTextDescripcionTarea);
         EditText editTextAgregarFechaIniTarea = (EditText) findViewById(R.id.editTextAgregarFechaIniTarea);
         EditText editTextAgregarFechaFinTarea = (EditText) findViewById(R.id.editTextAgregarFechaFinTarea);
+        EditText editTextIdProject = (EditText) findViewById(R.id.editTextIdProject);
         int message;
         JSONObject loginParams = new JSONObject();
 
         try {
 
+
             loginParams.put("nombre", editTextNombreTarea.getText().toString());
             loginParams.put("descripcion", editTextDescripcionTarea.getText().toString());
             loginParams.put("fechaInicio", editTextAgregarFechaIniTarea.getText().toString() + "T00:00:00-03:00");
             loginParams.put("fechaFin", editTextAgregarFechaFinTarea.getText().toString() + "T00:00:00-03:00");
+            loginParams.put("id_project", editTextIdProject.getText());
 
         } catch (JSONException e) {
             e.printStackTrace();

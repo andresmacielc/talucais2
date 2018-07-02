@@ -23,11 +23,8 @@ public class ServicioActivity extends AppCompatActivity {
     //variables a ser utilizadas
     final static private int duracionToast = 10;
     final static private int timeout = 5000;
-<<<<<<< HEAD
+
     final static public String ip = "192.168.43.26:8080";
-=======
-    final static public String ip = "192.168.43.236:8080";
->>>>>>> 31113d261b184838df61fce3d9b4071b171ef901
 
     /*Metodo que realiza la conexion (POST) con el servidor y envia la respuesta del
     servidor*/

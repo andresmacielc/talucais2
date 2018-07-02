@@ -19,6 +19,7 @@ public class InicioActivity extends AppCompatActivity {
     Button buttonGrupos;
     Button buttonSprint;
     Button buttonUserHistory;
+    Button buttonCerrarSesion;
 
     ArrayList<String> Coleccion = new ArrayList<String>();
 
@@ -34,6 +35,7 @@ public class InicioActivity extends AppCompatActivity {
         buttonGrupos = (Button) findViewById(R.id.buttonGrupos);
         buttonSprint = (Button) findViewById(R.id.buttonSprint);
         buttonUserHistory = (Button) findViewById(R.id.buttonUserHistory);
+        buttonCerrarSesion = (Button) findViewById(R.id.buttonCerrarSesion);
 
         botonUsuarios.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +92,18 @@ public class InicioActivity extends AppCompatActivity {
             }
         });
 
+        buttonCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cerrarSesion(v);
+            }
+        });
+
+    }
+
+    private void cerrarSesion(View v) {
+        Intent intentCS = new Intent(this, MainActivity.class);
+        startActivity(intentCS);
     }
 
     private void gestionUserHistory(View v) {

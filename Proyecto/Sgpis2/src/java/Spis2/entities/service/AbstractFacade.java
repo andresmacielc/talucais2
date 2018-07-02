@@ -87,7 +87,7 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createNativeQuery(consulta);//se consulta por medio de la persistencia
         
         if(q.getResultList().isEmpty())//se consulta se hubo resultados, si no el usuario o pass estan incorrectos
-            return obj.toString();
+            return "";
         else
         retorno_consulta = q.getSingleResult().toString();
             campos_consulta = retorno_consulta.split(",");

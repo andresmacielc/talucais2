@@ -96,5 +96,15 @@
             android:layout_marginBottom="71dp"
             android:text="User History" />
 
+        <Button
+            android:id="@+id/buttonCerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="15dp"
+            android:text="Salir" />
+
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

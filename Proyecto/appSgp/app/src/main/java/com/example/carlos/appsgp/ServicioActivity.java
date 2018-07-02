@@ -59,7 +59,7 @@ public class ServicioActivity extends AppCompatActivity {
             StringBuffer response = new StringBuffer();
             while ((line = rd.readLine()) != null) {
                 response.append(line);
-                response.append('\n');
+                //response.append('\n');
             }
             rd.close();
             return response.toString();

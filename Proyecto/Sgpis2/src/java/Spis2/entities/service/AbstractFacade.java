@@ -7,9 +7,13 @@ package Spis2.entities.service;
 
 import Spis2.entities.Usuario;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -74,14 +78,14 @@ public abstract class AbstractFacade<T> {
             return true;
     }
     
-    /*Se agrego una nueva funcion para el login que retorna u JSON*/
+    /*Se agrego una nueva funcion para el login que retorna un JSON*/
     public String login_object(Usuario user){//se recibe un objeto user
         
         JSONObject obj = new JSONObject();
         String retorno_consulta;
         String[] campos_consulta;
         
-        String consulta = "Select nombre ||','|| apellido ||','|| status ||','|| id_group ||','|| id_rol"
+        String consulta = "Select nombre ||'-'|| apellido ||'-'|| status ||'-'|| id_group ||'-'|| id_rol"
                 + " from Usuario where email = '" + user.getEmail() + "'"
                 + " and password = " + "'" + user.getPassword() + "'"; //se construye la consulta
         javax.persistence.Query q = getEntityManager().createNativeQuery(consulta);//se consulta por medio de la persistencia
@@ -90,7 +94,7 @@ public abstract class AbstractFacade<T> {
             return "";
         else
         retorno_consulta = q.getSingleResult().toString();
-            campos_consulta = retorno_consulta.split(",");
+            campos_consulta = retorno_consulta.split("-");
             
         try {
             obj.put("nombre", campos_consulta[0]);
@@ -103,7 +107,6 @@ public abstract class AbstractFacade<T> {
             String message = e.getMessage();
             System.out.println(message);
         }
-        
-            return obj.toString();
+        return obj.toString();
     }
 }
